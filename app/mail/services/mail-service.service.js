@@ -20,6 +20,7 @@ const mail = {
     subject: 'Hi',
     body: 'message',
     isRead: false,
+    isStarred: false,
     sendAt: 3231322
 }
 
@@ -50,6 +51,7 @@ function add(email) {
     email.sentAt = Date.now()
     email.sender = 'michael@coding.com'
     email.nickname =  'michael'
+    email.isStarred = false
     return storageService.post(EMAIL_KEY, email)
 }
 
@@ -62,40 +64,60 @@ function update(email) {
 
 function _createEmails() {
     return [
-        // {
-        //     id: utilService.makeId(),
-        //     subject: 'Hi1',
-        //     body: 'message',
-        //     isRead: true,
-        //     sentAt: 3231322
-        // },
-        // {
-        //     id: utilService.makeId(),
-        //     subject: 'Hi2',
-        //     body: 'message',
-        //     isRead: false,
-        //     sentAt: 3231322
-        // },
-        // {
-        //     id: utilService.makeId(),
-        //     subject: 'Hi3',
-        //     body: 'message',
-        //     isRead: true,
-        //     sentAt: 3231322
-        // },
-        // {
-        //     id: utilService.makeId(),
-        //     subject: 'H4',
-        //     body: 'message',
-        //     isRead: false,
-        //     sentAt: 3231322
-        // },
-        // {
-        //     id: utilService.makeId(),
-        //     subject: 'Hi5',
-        //     body: 'message',
-        //     isRead: false,
-        //     sentAt: 3231322
-        // },
+        {
+            id: utilService.makeId(),
+            subject: 'Hi1',
+            body: 'message',
+            isRead: false,
+            sentAt: 3231322,
+            sender: 'michael@coding.com',
+            nickname: 'michael',
+            receiver: 'ytav@coding.com',
+            isStarred: false
+        },
+        {
+            id: utilService.makeId(),
+            subject: 'Hi',
+            body: 'message',
+            isRead: false,
+            sentAt: 3231322,
+            sender: 'ytav@coding.com',
+            nickname: 'michael',
+            receiver: 'michael@coding.com',
+            isStarred: false
+        },
+        {
+            id: utilService.makeId(),
+            subject: 'BAR!',
+            body: 'Look at the cool bar',
+            isRead: true,
+            sentAt: 3231322,
+            sender: 'michael@coding.com',
+            nickname: 'michael',
+            receiver: 'ytav@coding.com',
+            isStarred: false
+        },
+        {
+            id: utilService.makeId(),
+            subject: 'This is yet another subject',
+            body: 'Sender: Ytav Receiver: michael',
+            isRead: true,
+            sentAt: 3231322,
+            sender: 'ytav@coding.com',
+            nickname: 'michael',
+            receiver: 'michael@coding.com',
+            isStarred: false
+        },
+        {
+            id: utilService.makeId(),
+            subject: 'This is subject',
+            body: 'Sender: michael Receiver: Ytav',
+            isRead: false,
+            sentAt: 3231322,
+            sender: 'michael@coding.com',
+            nickname: 'michael',
+            receiver: 'ytav@coding.com',
+            isStarred: false
+        },
     ]
 }
