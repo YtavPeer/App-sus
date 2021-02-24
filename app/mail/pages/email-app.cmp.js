@@ -3,7 +3,8 @@ import { emailService } from '../services/mail-service.service.js';
 import emailList from '../cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
 import emailCompose from '../cmps/email-compose.cmp.js';
-import emailStatus from '../cmps/email-status.cmp.js'
+import emailStatus from '../cmps/email-status.cmp.js';
+import emailSideMenu from '../cmps/email-side-menu.cmp.js';
 
 
 
@@ -11,16 +12,22 @@ export default {
       template: `
       <section class="home-mail">
             <h1>home-mail</h1>
+            <button @click="compose">Compose</button>
             <email-status :percentages="precForBar" />
-            <email-compose @add-email="addEmail"/>
+            <email-compose v-if="emailToEdit || isEmailToAdd" @add-email="addEmail" @close-modal="closeModal" :emailToEdit="emailToEdit" />
             <h2>list-mail</h2>
             <email-filter @filtered="setFilter" @sorted="setSort"/>
-            <email-list  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"/>
+            <div class="flex">
+                  <email-side-menu class="email-side-menu1"/>
+                  <email-list class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay"/>
+            </div>emails.container
       </section>
       `,
       data() {
             return {
                   emails: [],
+                  emailToEdit: null,
+                  isEmailToAdd: false,
                   filters: null,
                   sort: 'date'
             }
@@ -37,6 +44,7 @@ export default {
                   emailService.add(email)
                         .then(() => {
                               this.loadEmails()
+                              this.closeModal()
                         })
             },
             markAsRead(email) {
@@ -47,12 +55,25 @@ export default {
                               this.loadEmails()
                         })
             },
+            replay(email) {
+                  console.log('replaying.......')
+                  this.emailToEdit = email
+                  console.log( this.emailToEdit)
+            },
             setFilter(filters) {
                   this.filters = filters
             },
             setSort(sort) {
                   this.sort = sort
                   console.log(this.sort)
+            },
+            compose() {
+                  console.log('creating new mail..')
+                  this.isEmailToAdd = true
+            },
+            closeModal() {
+                  this.isEmailToAdd = false
+                  this.emailToEdit = null
             }
       },
 
@@ -96,7 +117,8 @@ export default {
             emailList,
             emailFilter,
             emailCompose,
-            emailStatus
+            emailStatus,
+            emailSideMenu
       }
 
 }

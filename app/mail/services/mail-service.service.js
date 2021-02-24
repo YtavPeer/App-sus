@@ -14,6 +14,8 @@ export const emailService = {
 //pseudo
 const mail = {
     id: utilService.makeId(),
+    sender: 'michael@coding.com',
+    nickname: 'michael',
     receiver: 'asdads',
     subject: 'Hi',
     body: 'message',
@@ -46,6 +48,8 @@ function add(email) {
     email.id = utilService.makeId()
     email.isRead = false
     email.sentAt = Date.now()
+    email.sender = 'michael@coding.com'
+    email.nickname =  'michael'
     return storageService.post(EMAIL_KEY, email)
 }
 
