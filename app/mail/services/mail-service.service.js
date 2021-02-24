@@ -14,6 +14,7 @@ export const emailService = {
 //pseudo
 const mail = {
     id: utilService.makeId(),
+    receiver: 'asdads',
     subject: 'Hi',
     body: 'message',
     isRead: false,
@@ -57,40 +58,40 @@ function update(email) {
 
 function _createEmails() {
     return [
-        {
-            id: utilService.makeId(),
-            subject: 'Hi1',
-            body: 'message',
-            isRead: true,
-            sentAt: 3231322
-        },
-        {
-            id: utilService.makeId(),
-            subject: 'Hi2',
-            body: 'message',
-            isRead: false,
-            sentAt: 3231322
-        },
-        {
-            id: utilService.makeId(),
-            subject: 'Hi3',
-            body: 'message',
-            isRead: true,
-            sentAt: 3231322
-        },
-        {
-            id: utilService.makeId(),
-            subject: 'H4',
-            body: 'message',
-            isRead: false,
-            sentAt: 3231322
-        },
-        {
-            id: utilService.makeId(),
-            subject: 'Hi5',
-            body: 'message',
-            isRead: false,
-            sentAt: 3231322
-        },
+        // {
+        //     id: utilService.makeId(),
+        //     subject: 'Hi1',
+        //     body: 'message',
+        //     isRead: true,
+        //     sentAt: 3231322
+        // },
+        // {
+        //     id: utilService.makeId(),
+        //     subject: 'Hi2',
+        //     body: 'message',
+        //     isRead: false,
+        //     sentAt: 3231322
+        // },
+        // {
+        //     id: utilService.makeId(),
+        //     subject: 'Hi3',
+        //     body: 'message',
+        //     isRead: true,
+        //     sentAt: 3231322
+        // },
+        // {
+        //     id: utilService.makeId(),
+        //     subject: 'H4',
+        //     body: 'message',
+        //     isRead: false,
+        //     sentAt: 3231322
+        // },
+        // {
+        //     id: utilService.makeId(),
+        //     subject: 'Hi5',
+        //     body: 'message',
+        //     isRead: false,
+        //     sentAt: 3231322
+        // },
     ]
 }
