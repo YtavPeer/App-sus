@@ -7,6 +7,21 @@
     align-items: center;
 }
 
+<<<<<<< HEAD
+=======
+/* KEEP - APP */
+
+.dynamicNotes-list {
+    display: flex;
+}
+
+.dynamicNotes-preview-container {
+    width: 250px;
+    height: 400px;
+    background-color: cyan;
+    margin: 20px;
+}
+>>>>>>> 44733c1642956a690be306a8cea65246e04f0ff7
 
 /* EMAILS */
 
@@ -23,6 +38,7 @@
 .flex.space-between {
     justify-content: space-between;
 }
+<<<<<<< HEAD
 
 /* KEEP - APP */
 
@@ -36,3 +52,5 @@
     background-color: cyan;
     margin: 20px;
 }
+=======
+>>>>>>> 44733c1642956a690be306a8cea65246e04f0ff7
