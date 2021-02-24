@@ -19,6 +19,26 @@
     background-color: lightgrey;
 }
 
+.email-bar{
+    position: relative;
+    background-color: lightgray;
+    width: 100%;
+    height: 2rem;
+    border: 1px solid #575757;
+    margin: 0 auto;
+}
+
+.email-bar-value{
+    background-color: lightgreen;
+    height: 100%;
+    transition: all 2s;
+}
+
+.perc-email-txt{
+    position: absolute;
+    left: 50%;
+}
+
 /* HELPERS */
 
 .flex {

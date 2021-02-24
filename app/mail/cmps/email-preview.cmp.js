@@ -11,13 +11,13 @@ export default {
     `,
     data() {
         return {
-            isRead: this.email.isRead
+            // isRead: this.email.isRead
         }
     },
     computed: {
         markRead() {
             return {
-                'read': this.isRead
+                'read': this.email.isRead
             }
         }
     },
