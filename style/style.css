@@ -7,6 +7,7 @@
     align-items: center;
 }
 
+<<<<<<< HEAD
 
 /* EMAILS */
 
@@ -24,3 +25,17 @@
     justify-content: space-between;
 }
 
+=======
+/* KEEP - APP */
+
+.dynamicNotes-list{
+    display: flex;
+}
+
+.dynamicNotes-preview-container {
+    width: 250px;
+    height: 400px;
+    background-color: cyan;
+    margin: 20px;
+}
+>>>>>>> ff215a979a72334cf72b00fa653111e4af8abe8d
