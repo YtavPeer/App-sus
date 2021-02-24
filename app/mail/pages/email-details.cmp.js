@@ -1,6 +1,7 @@
 import { emailService } from '../services/mail-service.service.js';
 
 export default {
+    props: ['emailRoute'],
     template: `
     <section v-if="email">
         <h1> {{email.subject}} </h1>
@@ -20,6 +21,8 @@ export default {
     methods: {
         loadEmail() {
             const id = this.$route.params.emailId
+            // console.log(id, this.emailRoute.id)
+            // if(id !== this.emailRoute.id) return
             emailService.getById(id).
                 then(email => {
                     console.log(email)
@@ -28,6 +31,7 @@ export default {
         }
     },
     created() {
+        console.log(this.emailRoute, "emailRoute")
         this.loadEmail()
     }
 }

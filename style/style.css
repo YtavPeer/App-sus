@@ -65,7 +65,7 @@ button {
     justify-content: center;
 }
 
-.flex.center-align{
+.flex.center-align {
     align-items: center;
 }
 
@@ -97,10 +97,10 @@ button {
     /* transition: opacity 0.8s; */
     border-top-right-radius: 7px;
     border-top-left-radius: 7px;
-    box-shadow: 1px 7px 15px 5px rgba(0,0,0,0.28)    ;
+    box-shadow: 1px 7px 15px 5px rgba(0, 0, 0, 0.28);
 }
 
-.modal-email-headline{
+.modal-email-headline {
     width: 100%;
     height: 40px;
     background-color: #404040;
@@ -108,14 +108,14 @@ button {
     border-top-left-radius: 7px;
 }
 
-.email-modal-btn-close{
+.email-modal-btn-close {
     color: white;
     border: none;
     background: none;
     margin-left: .3rem;
 }
 
-.email-modal-headline-msg{
+.email-modal-headline-msg {
     color: white;
     display: inline-block;
     margin-left: .3rem;
@@ -124,11 +124,11 @@ button {
 
 /* Email Form */
 
-.email-form{
+.email-form {
     height: calc(100% - 30px);
 }
 
-.email-form-to{
+.email-form-to {
     flex: 1;
 }
 
@@ -136,29 +136,41 @@ button {
     flex: 1;
 } */
 
-.email-form-body{
+.email-form-body {
     flex: 8;
 }
 
 /* Email side menu */
-.email-side-menu{
-    background-color: lightskyblue;
+.email-side-menu {
+    /* background-color: lightskyblue; */
 }
 
-.email-side-menu  a {
+.email-side-menu a {
     display: inline-block;
     height: 40px;
-    width: 100%;
+    width: calc(100% - 8px);
     text-decoration: none;
+    line-height: 40px;
+    padding-left: 8px;
 }
 
-.email-side-menu  a:hover {
-   background-color: orange;
+
+
+
+
+.email-side-menu a.active{
+    background-color: #ff00002f ;
+
+}
+
+.email-side-menu a:hover {
+    background-color: #ff000054;
 }
 
 
-.email-side-menu1{
+.email-side-menu1 {
     flex: 1;
+    max-width: 300px; /* ??? check! */
 }
 
 .email-list {

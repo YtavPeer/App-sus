@@ -18,8 +18,9 @@ export default {
             <h2>list-mail</h2>
             <email-filter @filtered="setFilter" @sorted="setSort"/>
             <div class="flex">
-                  <email-side-menu class="email-side-menu1"/>
-                  <email-list class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay"/>
+                  <email-side-menu class="email-side-menu1" @sent-emails="sentEmails"/>
+                  <!-- <email-list class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay"/> -->
+                  <router-view  class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay" @star="star"/>
             </div>emails.container
       </section>
       `,
@@ -74,6 +75,15 @@ export default {
             closeModal() {
                   this.isEmailToAdd = false
                   this.emailToEdit = null
+            },
+            sentEmails() {
+                  this.emails = this.emails.filter(email => {
+                        return email.sender === 'michal@coding.com'
+                  })
+            },
+            star(email) {
+                  email.isStarred = !email.isStarred
+                  emailService.update(email)
             }
       },
 

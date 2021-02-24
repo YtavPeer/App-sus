@@ -8,6 +8,7 @@ export default {
     <long-text :txt="email.body"/>
     <router-link class="detail-preview" :to="'/email/'+email.id">Details</router-link>
     <button @click="replay">Replay</button>
+    <button @click="star">Star</button>
     </section>
     `,
     data() {
@@ -18,6 +19,9 @@ export default {
     methods: {
         replay() {
             this.$emit('replay', this.email)
+        },
+        star() {
+            this.$emit('star', this.email)
         }
     },
     computed: {
