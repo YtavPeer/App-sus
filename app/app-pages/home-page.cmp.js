@@ -1,6 +1,6 @@
 export default {
       template: `
-     <section class="home-page">
+     <section>
            <h1 class="hero-title">Welcome to app sos</h1>
       </section>
       `,

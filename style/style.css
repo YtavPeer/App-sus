@@ -1,0 +1,8 @@
+.app-header {
+    background-color: lightgreen;
+    padding: 10px;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
