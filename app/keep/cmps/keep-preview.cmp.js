@@ -1,4 +1,7 @@
-import NoteTxt from '../cmps/note-txt.cmp.js';
+import NoteTxt from '../cmps/cmps-Notes/note-txt.cmp.js';
+import NoteImg from '../cmps/cmps-Notes/note-img.cmp.js';
+import NoteTodos from '../cmps/cmps-Notes/note-todos.cmp.js';
+import NoteVideo from '../cmps/cmps-Notes/note-video.cmp.js';
 
 
 export default {
@@ -8,12 +11,15 @@ export default {
 
         <pre>{{dynamicNote}}</pre>
         
-        <component :is="dynamicNote.type"></component>
+        <component :is="dynamicNote.type" :dynamicNote="dynamicNote"></component>
 
       </section>
       `,
   components: {
-    NoteTxt
+    NoteTxt,
+    NoteImg,
+    NoteTodos,
+    NoteVideo,
   }
 
 }

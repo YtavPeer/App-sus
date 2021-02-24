@@ -1,8 +1,7 @@
 
 
-
 export default {
-      template: `
+  template: `
           <section class="note-txt">
 
             <h1> this is txt component</h1>
@@ -10,8 +9,8 @@ export default {
 
           </section>
           `,
-      computed: {
+  computed: {
 
-      }
+  }
 
 }
