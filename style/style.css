@@ -7,6 +7,21 @@
     align-items: center;
 }
 
+<<<<<<< HEAD
+=======
+/* KEEP - APP */
+
+.dynamicNotes-list {
+    display: flex;
+}
+
+.dynamicNotes-preview-container {
+    width: 250px;
+    height: 400px;
+    background-color: cyan;
+    margin: 20px;
+}
+>>>>>>> 81595b2f26463c1fbbef5bcb214ed1a4286519ad
 
 /* EMAILS */
 
@@ -14,14 +29,15 @@
     background-color: lightgrey;
 }
 
-
 /* HELPERS */
-.flex{
+
+.flex {
     display: flex;
 }
 
 .flex.space-between {
     justify-content: space-between;
+<<<<<<< HEAD
 }
 
 /* KEEP - APP */
@@ -36,3 +52,6 @@
     background-color: cyan;
     margin: 20px;
 }
+=======
+}
+>>>>>>> 81595b2f26463c1fbbef5bcb214ed1a4286519ad
