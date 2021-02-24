@@ -6,12 +6,13 @@ export default {
       template: `
       <ul v-if="dynamicNotes" class="dynamicNotes-list">
             <li v-for="(dynamicNote , idx) in dynamicNotes" :key="dynamicNote.id" class="dynamicNotes-preview-container" :style="{backgroundColor: dynamicNote.style.backgroundColor}">
-                  <keep-preview :dynamicNote="dynamicNote" @click.native="selectKeep(dynamicNote)"></keep-preview>
+                  <img v-if="!dynamicNote.isPinned" class="noteTypeIcon pin" @click="pinNotes(dynamicNote)" src="../../img/push-pin.png" alt="" width=25>
+                  <img v-if="dynamicNote.isPinned" class="noteTypeIcon pin" @click="pinNotes(dynamicNote)" src="../../img/office-push-pin.png" alt="" width=25>
+                  <keep-preview :dynamicNote="dynamicNote"></keep-preview>
                   <button @click="remove(dynamicNote)">X</button>
                   <button @click="edit(dynamicNote)">Edit</button>
-                  <input type="color" @change="changeColor($event,dynamicNote)"/>
-                  <button>Pin</button>
-                  <button>Send Mail</button>
+                  <input type="color" @input="changeColor($event,dynamicNote)"/>
+                  <img class="noteTypeIcon email" @click="sendEmail(dynamicNote)" src="../../img/send.png" alt="" width=25>
            </li>
       </ul>
       `,
@@ -20,19 +21,23 @@ export default {
             }
       },
       methods: {
-            selectKeep(keep) {
-                  this.$emit('selected', keep);
-            },
             remove(dynamicNote) {
                   this.$emit('removeNote', dynamicNote);
             },
             edit(dynamicNote) {
                   this.$emit('editNote', dynamicNote);
             },
-            changeColor(event,dynamicNote) {
-                  console.log(event);
-                  console.log(dynamicNote);
-                  // this.$emit('changeColor', dynamicNote)
+            changeColor(event, dynamicNote) {
+                  var color = event.target.value
+                  this.$emit('changeColor', dynamicNote, color)
+            },
+            pinNotes(dynamicNote) {
+                  //need to implement pin data
+                  console.log(dynamicNote)
+            },
+            sendEmail(dynamicNote) {
+                  //need to implement send email by bus
+                  console.log(dynamicNote)
             }
       },
       computed: {

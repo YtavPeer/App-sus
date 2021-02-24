@@ -1,12 +1,12 @@
 
 
 export default {
+  name: 'note-txt-cmp',
+  props: ['dynamicNote'],
   template: `
           <section class="note-txt">
-
-            <h1> this is txt component</h1>
-            <input type="text">
-
+             <h2>{{dynamicNote.info.title}}</h2>
+             <h4>{{dynamicNote.info.txt}}</h4>
           </section>
           `,
   computed: {

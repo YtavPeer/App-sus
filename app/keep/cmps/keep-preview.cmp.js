@@ -7,12 +7,8 @@ import NoteVideo from '../cmps/cmps-Notes/note-video.cmp.js';
 export default {
   props: ['dynamicNote'],
   template: `
-      <section class="keep-preview">
-
-        <pre>{{dynamicNote}}</pre>
-        
-        <component :is="dynamicNote.type" :dynamicNote="dynamicNote"></component>
-
+      <section class="keep-preview"> 
+           <component :is="dynamicNote.type" :dynamicNote="dynamicNote"></component>
       </section>
       `,
   components: {

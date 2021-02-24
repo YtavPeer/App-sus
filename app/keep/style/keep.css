@@ -5,10 +5,27 @@
 }
 
 .dynamicNotes-preview-container {
+    position: relative;
     width: 250px;
-    height: 600px;
     background-color: cyan;
     margin: 20px;
     border-radius: 10px;
     list-style-type: none;
+    text-align: center;
+}
+
+/* KEEP ADD */
+
+.noteTypeIcon {
+    cursor: pointer;
+}
+
+.pin{
+    margin: 5px;
+    position: absolute;
+    right: 0;
+}
+
+.todo-toggle{
+    cursor: pointer;
 }

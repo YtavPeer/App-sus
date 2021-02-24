@@ -2,10 +2,6 @@
 export default {
       template: `
       <section class="keep-add">
-              <h3>add dynamic components</h3>
-              <button>Add Notes</button>
-              <button>Add img</button>
-              <button>Add video</button>
                   <form class="create-note" v-on:submit.prevent="createNote()">
                            <!-- <img onclick="onClickStrokeColorPallete()" class="icon changeStrokeColor"
                                     src="./ICONS/paint-board-and-brush.png" alt=""> -->
@@ -18,10 +14,10 @@ export default {
                         <input v-if="newNote.noteType === 'NoteTodos'" name="todosNote" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
                       <button type="submit">Add</button>
                   </form>
-                  <button @click="changeToTodos" type="submit">Todos</button>
-                  <button @click="changeToText" type="submit">text</button>
-                  <button @click="changeToImage" type="submit">image</button>
-                  <button @click="changeToVideo" type="submit">video</button>
+                  <img class="noteTypeIcon" @click="changeToTodos" src="../../img/list.png" alt="" width=25>
+                  <img class="noteTypeIcon" @click="changeToImage" src="../../img/imageicon.png" alt="" width=25>
+                  <img class="noteTypeIcon" @click="changeToVideo" src="../../img/videoicon.png" alt="" width=25>
+                  <img class="noteTypeIcon" @click="changeToText" src="../../img/texticon.png" alt="" width=25>
       </section>
       `,
       data() {
