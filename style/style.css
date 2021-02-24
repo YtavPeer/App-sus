@@ -7,8 +7,6 @@
     align-items: center;
 }
 
-<<<<<<< HEAD
-=======
 /* KEEP - APP */
 
 .dynamicNotes-list {
@@ -21,7 +19,6 @@
     background-color: cyan;
     margin: 20px;
 }
->>>>>>> 44733c1642956a690be306a8cea65246e04f0ff7
 
 /* EMAILS */
 
@@ -38,7 +35,6 @@
 .flex.space-between {
     justify-content: space-between;
 }
-<<<<<<< HEAD
 
 /* KEEP - APP */
 
@@ -52,5 +48,3 @@
     background-color: cyan;
     margin: 20px;
 }
-=======
->>>>>>> 44733c1642956a690be306a8cea65246e04f0ff7
