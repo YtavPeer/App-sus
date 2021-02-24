@@ -10,7 +10,10 @@ export default {
           <h1>home-keep</h1>
           <keep-filter></keep-filter>
           <keep-add @addNote="addNewNote"></keep-add>
-          <keep-list v-if="dynamicNotes" :dynamicNotes="dynamicNotes" @removeNote="removeNote" @editNote="editNote"></keep-list>
+          <keep-list v-if="dynamicNotes" :dynamicNotes="dynamicNotes" 
+          @removeNote="removeNote" 
+          @editNote="editNote"
+          @changeColor="changeColor"></keep-list>
       </section>
       `,
       data() {
@@ -96,43 +99,125 @@ export default {
             editNote(note) {
                   //make swall alert with 3 input according to the type
                   console.log('editing note', note);
-                  switch (note.noteType) {
+                  switch (note.type) {
                         case 'NoteTxt':
-                              // const newTxtNote = keepService.getEmptyNoteTxt()
-                              // newTxtNote.info.title = newNote.title;
-                              // newTxtNote.info.txt = newNote.content;
-                              // newTxtNote.style.backgroundColor = newNote.color;
-                              // console.log('the new txt obj', newTxtNote);
-                              // keepService.addNote(newTxtNote)
-                              //       .then(res => this.loadsNotes())
+                              Swal.mixin({
+                                    input: 'text',
+                                    confirmButtonText: 'Next &rarr;',
+                                    showCancelButton: true,
+                                    progressSteps: ['1', '2']
+                              }).queue([
+                                    {
+                                          title: 'new title',
+                                          text: 'Please set your new title'
+                                    },
+                                    {
+                                          title: 'new text',
+                                          text: 'Please set your new Text'
+                                    }
+                              ]).then((result) => {
+                                    if (result.value) {
+                                          note.info.title = result.value[0];
+                                          note.info.txt = result.value[1];
+                                          keepService.editNote(note)
+                                                .then(res => this.loadsNotes())
+                                          Swal.fire({
+                                                title: 'Update done!',
+                                                confirmButtonText: 'Ok!'
+                                          })
+                                    }
+                              })
                               break;
                         case 'NoteImg':
-                              newImgNote.info.title = newNote.title;
-                              newImgNote.info.url = newNote.imgUrl;
-                              newImgNote.style.backgroundColor = newNote.color;
-                              keepService.addNote(newImgNote)
-                                    .then(res => this.loadsNotes())
+                              Swal.mixin({
+                                    input: 'text',
+                                    confirmButtonText: 'Next &rarr;',
+                                    showCancelButton: true,
+                                    progressSteps: ['1', '2']
+                              }).queue([
+                                    {
+                                          title: 'new title',
+                                          text: 'Please set your new title'
+                                    },
+                                    {
+                                          title: 'new image url',
+                                          text: 'Please set your new Image Url'
+                                    }
+                              ]).then((result) => {
+                                    if (result.value) {
+                                          note.info.title = result.value[0];
+                                          note.info.url = result.value[1];
+                                          keepService.editNote(note)
+                                                .then(res => this.loadsNotes())
+                                          Swal.fire({
+                                                title: 'Update done!',
+                                                confirmButtonText: 'Ok!'
+                                          })
+                                    }
+                              })
                               break;
                         case 'NoteVideo':
-                              // const newVideoNote = keepService.getEmptyNoteVideo();
-                              // newVideoNote.info.title = newNote.title;
-                              // newVideoNote.info.url = newNote.videoUrl;
-                              // newVideoNote.style.backgroundColor = newNote.color;
-                              // keepService.addNote(newVideoNote)
-                              //       .then(res => this.loadsNotes())
+                              Swal.mixin({
+                                    input: 'text',
+                                    confirmButtonText: 'Next &rarr;',
+                                    showCancelButton: true,
+                                    progressSteps: ['1', '2']
+                              }).queue([
+                                    {
+                                          title: 'new title',
+                                          text: 'Please set your new title'
+                                    },
+                                    {
+                                          title: 'new Video url',
+                                          text: 'Please set your new Video Url'
+                                    }
+                              ]).then((result) => {
+                                    if (result.value) {
+                                          note.info.title = result.value[0];
+                                          note.info.url = result.value[1];
+                                          keepService.editNote(note)
+                                                .then(res => this.loadsNotes())
+                                          Swal.fire({
+                                                title: 'Update done!',
+                                                confirmButtonText: 'Ok!'
+                                          })
+                                    }
+                              })
                               break;
                         case 'NoteTodos':
-                              // const newTodosNote = keepService.getEmptyNoteTodos();
-                              // newTodosNote.info.title = newNote.title;
-                              // newTodosNote.style.backgroundColor = newNote.color;
-                              // newTodosNote.info.todos = newNote.todos.split(';');
-                              // console.log(newTodosNote);
-                              // keepService.addNote(newTodosNote)
-                              //       .then(res => this.loadsNotes())
+                              Swal.mixin({
+                                    input: 'text',
+                                    confirmButtonText: 'Next &rarr;',
+                                    showCancelButton: true,
+                                    progressSteps: ['1', '2']
+                              }).queue([
+                                    {
+                                          title: 'new title',
+                                          text: 'Please set your new title'
+                                    },
+                                    {
+                                          title: 'new todos',
+                                          text: 'Please set your todos seperate by ;'
+                                    }
+                              ]).then((result) => {
+                                    if (result.value) {
+                                          note.info.title = result.value[0];
+                                          note.info.todos = result.value[1].split(';');
+                                          keepService.editNote(note)
+                                                .then(res => this.loadsNotes())
+                                          Swal.fire({
+                                                title: 'Update done!',
+                                                confirmButtonText: 'Ok!'
+                                          })
+                                    }
+                              })
                               break;
                         default:
                               break;
                   }
+            },
+            changeColor(note, color) {
+                  console.log(note, color)
             }
       },
       components: {

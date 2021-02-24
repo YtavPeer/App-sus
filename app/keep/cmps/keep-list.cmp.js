@@ -9,7 +9,7 @@ export default {
                   <keep-preview :dynamicNote="dynamicNote" @click.native="selectKeep(dynamicNote)"></keep-preview>
                   <button @click="remove(dynamicNote)">X</button>
                   <button @click="edit(dynamicNote)">Edit</button>
-                  <button>Change Color</button>
+                  <input type="color" @change="changeColor($event,dynamicNote)"/>
                   <button>Pin</button>
                   <button>Send Mail</button>
            </li>
@@ -28,6 +28,11 @@ export default {
             },
             edit(dynamicNote) {
                   this.$emit('editNote', dynamicNote);
+            },
+            changeColor(event,dynamicNote) {
+                  console.log(event);
+                  console.log(dynamicNote);
+                  // this.$emit('changeColor', dynamicNote)
             }
       },
       computed: {
