@@ -7,28 +7,9 @@
     align-items: center;
 }
 
-<<<<<<< HEAD
-
-/* EMAILS */
-
-.read {
-    background-color: lightgrey;
-}
-
-
-/* HELPERS */
-.flex{
-    display: flex;
-}
-
-.flex.space-between {
-    justify-content: space-between;
-}
-
-=======
 /* KEEP - APP */
 
-.dynamicNotes-list{
+.dynamicNotes-list {
     display: flex;
 }
 
@@ -38,4 +19,19 @@
     background-color: cyan;
     margin: 20px;
 }
->>>>>>> ff215a979a72334cf72b00fa653111e4af8abe8d
+
+/* EMAILS */
+
+.read {
+    background-color: lightgrey;
+}
+
+/* HELPERS */
+
+.flex {
+    display: flex;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
