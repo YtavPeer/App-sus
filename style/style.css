@@ -2,6 +2,10 @@
 
 @import '../app//keep/style/keep.css';
 
+button {
+    cursor: pointer;
+}
+
 
 .app-header {
     background-color: lightgreen;
@@ -19,7 +23,7 @@
     background-color: lightgrey;
 }
 
-.email-bar{
+.email-bar {
     position: relative;
     background-color: lightgray;
     width: 100%;
@@ -28,13 +32,13 @@
     margin: 0 auto;
 }
 
-.email-bar-value{
+.email-bar-value {
     background-color: lightgreen;
     height: 100%;
     transition: all 2s;
 }
 
-.perc-email-txt{
+.perc-email-txt {
     position: absolute;
     left: 50%;
 }
@@ -49,3 +53,114 @@
     justify-content: space-between;
 }
 
+.flex.flex-column {
+    flex-direction: column;
+}
+
+.flex.flex-end {
+    justify-content: flex-end;
+}
+
+.flex.center-justify {
+    justify-content: center;
+}
+
+.flex.center-align{
+    align-items: center;
+}
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.center {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Email Modal */
+
+.modal {
+    color: grey;
+    font-family: lato-bold;
+    position: fixed;
+    width: 400px;
+    height: 500px;
+    /* padding: 1rem; */
+    background-color: lightgray;
+    opacity: 1;
+    z-index: 1;
+    /* transition: opacity 0.8s; */
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    box-shadow: 1px 7px 15px 5px rgba(0,0,0,0.28)    ;
+}
+
+.modal-email-headline{
+    width: 100%;
+    height: 40px;
+    background-color: #404040;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.email-modal-btn-close{
+    color: white;
+    border: none;
+    background: none;
+    margin-left: .3rem;
+}
+
+.email-modal-headline-msg{
+    color: white;
+    display: inline-block;
+    margin-left: .3rem;
+    /* align-self: center; */
+}
+
+/* Email Form */
+
+.email-form{
+    height: calc(100% - 30px);
+}
+
+.email-form-to{
+    flex: 1;
+}
+
+/* .email-form-subject{
+    flex: 1;
+} */
+
+.email-form-body{
+    flex: 8;
+}
+
+/* Email side menu */
+.email-side-menu{
+    background-color: lightskyblue;
+}
+
+.email-side-menu  a {
+    display: inline-block;
+    height: 40px;
+    width: 100%;
+    text-decoration: none;
+}
+
+.email-side-menu  a:hover {
+   background-color: orange;
+}
+
+
+.email-side-menu1{
+    flex: 1;
+}
+
+.email-list {
+    flex: 9;
+}

@@ -1,16 +1,14 @@
 /* KEEP - APP */
 
 .dynamicNotes-list {
-      display: flex;
-  }
-  
-  .dynamicNotes-preview-container {
-      width: 250px;
-      height: 600px;
-      background-color: cyan;
-      margin: 20px;
-      border-radius: 10px;
-      list-style-type: none;
-  }
+    display: flex;
+}
 
- 
+.dynamicNotes-preview-container {
+    width: 250px;
+    height: 600px;
+    background-color: cyan;
+    margin: 20px;
+    border-radius: 10px;
+    list-style-type: none;
+}
