@@ -1,3 +1,8 @@
+/* IMPORT KEEP AND EMAIL CSS */
+
+@import '../app//keep/style/keep.css';
+
+
 .app-header {
     background-color: lightgreen;
     padding: 10px;
@@ -7,18 +12,6 @@
     align-items: center;
 }
 
-/* KEEP - APP */
-
-.dynamicNotes-list {
-    display: flex;
-}
-
-.dynamicNotes-preview-container {
-    width: 250px;
-    height: 600px;
-    background-color: cyan;
-    margin: 20px;
-}
 
 /* EMAILS */
 
@@ -36,15 +29,3 @@
     justify-content: space-between;
 }
 
-/* KEEP - APP */
-
-.dynamicNotes-list{
-    display: flex;
-}
-
-.dynamicNotes-preview-container {
-    width: 250px;
-    height: 400px;
-    background-color: cyan;
-    margin: 20px;
-}

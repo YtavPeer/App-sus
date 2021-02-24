@@ -1,14 +1,19 @@
 import { utilService } from '../../service/utils-service.js';
+import { storageService } from '../../service/async-storage-service.js';
 
 export const keepService = {
       query,
+      getNoteById,
+      removeNote,
+      editNote,
+      addNote,
+      getEmptyNoteTxt,
+      getEmptyNoteImg,
+      getEmptyNoteTodos,
+      getEmptyNoteVideo,
 }
 
-function query() {
-      return notes;
-}
-
-var notes = [
+var notesDB = [
       {
             id: utilService.makeId(),
             type: "NoteTxt",
@@ -70,4 +75,95 @@ var notes = [
       },
 
 ]
+const NOTES_KEY = 'keep-storage';
+var gNotes = _createNotes();
 
+function query() {
+      return storageService.query(NOTES_KEY)
+}
+
+function getNoteById(NoteId) {
+      return storageService.get(NOTES_KEY, NoteId);
+}
+
+function removeNote(noteId) {
+      console.log('remove Note in Keep service')
+      return storageService.remove(NOTES_KEY, noteId)
+}
+
+function editNote(note) {
+      return storageService.put(NOTES_KEY, note)
+}
+
+function addNote(note) {
+      return storageService.post(NOTES_KEY, note)
+}
+
+function getEmptyNoteTxt() {
+      return {
+            id: utilService.makeId(),
+            type: "NoteTxt",
+            isPinned: false,
+            info: {
+                  title: null,
+                  txt: null
+            },
+            style: {
+                  backgroundColor: null
+            }
+      }
+}
+
+function getEmptyNoteImg() {
+      return {
+            id: utilService.makeId(),
+            type: "NoteImg",
+            info: {
+                  url: null,
+                  title: null
+            },
+            style: {
+                  backgroundColor: null
+            }
+      }
+}
+
+function getEmptyNoteTodos() {
+      return {
+            id: utilService.makeId(),
+            type: "NoteTodos",
+            info: {
+                  label: null,
+                  todos: [
+                        { txt: null, doneAt: null },
+                        { txt: null, doneAt: null }
+                  ]
+            },
+            style: {
+                  backgroundColor: null
+            }
+      }
+}
+
+function getEmptyNoteVideo() {
+      return {
+            id: utilService.makeId(),
+            type: "NoteVideo",
+            info: {
+                  url: null,
+                  title: null
+            },
+            style: {
+                  backgroundColor: null
+            }
+      }
+}
+
+function _createNotes() {
+      let notes = utilService.loadFromStorage(NOTES_KEY)
+      if (!notes || !notes.length) {
+            notes = notesDB;
+            utilService.saveToStorage(NOTES_KEY, notes)
+      }
+      return notes;
+}

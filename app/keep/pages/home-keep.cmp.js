@@ -9,8 +9,8 @@ export default {
      <section class="home-keep">
           <h1>home-keep</h1>
           <keep-filter></keep-filter>
-          <keep-add></keep-add>
-          <keep-list v-if="dynamicNotes" :dynamicNotes="dynamicNotes"></keep-list>
+          <keep-add @addNote="addNewNote"></keep-add>
+          <keep-list v-if="dynamicNotes" :dynamicNotes="dynamicNotes" @removeNote="removeNote"></keep-list>
       </section>
       `,
       data() {
@@ -19,13 +19,27 @@ export default {
                   dynamicNotes: null,
             }
       },
+      methods: {
+            loadsNotes() {
+                  keepService.query()
+                        .then(notes => this.dynamicNotes = notes);
+            },
+            removeNote(note) {
+                  console.log('keep-home comp removeNote', note);
+                  keepService.removeNote(note.id)
+                        .then(res => this.loadsNotes());
+            },
+            addNewNote(newNote) {
+                  console.log('adding new note', newNote)
+            }
+      },
       components: {
             keepFilter,
             keepAdd,
             keepList
       },
       created() {
-            this.dynamicNotes = keepService.query();
+            this.loadsNotes()
       }
 
 }
