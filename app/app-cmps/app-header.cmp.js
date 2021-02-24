@@ -10,7 +10,7 @@ export default {
            <nav class="main-navbar">
                  <router-link to="/">Home</router-link>|
                  <router-link to="/keep">keep</router-link>|
-                 <router-link to="/mail">mail</router-link>|
+                 <router-link to="/email">mail</router-link>|
            </nav>
       </header>
       `,

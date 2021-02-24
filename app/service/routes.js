@@ -1,6 +1,7 @@
 import homePage from '../app-pages/home-page.cmp.js';
 import homeKeep from '../keep/pages/home-keep.cmp.js';
-import homeMail from '../mail/pages/home-mail.cmp.js';
+import emailApp from '../mail/pages/email-app.cmp.js'
+import emailDetails from '../mail/pages/email-details.cmp.js'
 
 const routes = [
       {
@@ -8,8 +9,12 @@ const routes = [
             component: homePage,
       },
       {
-            path: '/mail',
-            component: homeMail
+            path: '/email',
+            component: emailApp
+      },
+      {
+            path: '/email/:emailId',
+            component: emailDetails
       },
       {
             path: '/keep',
