@@ -8,7 +8,8 @@ export const emailService = {
     query,
     getById,
     add,
-    update
+    update,
+    remove
 }
 
 //pseudo
@@ -57,6 +58,11 @@ function add(email) {
 
 function update(email) {
     return storageService.put(EMAIL_KEY, email)
+}
+
+function remove(emailId) {
+    console.log(emailId)
+    return storageService.remove(EMAIL_KEY, emailId)
 }
 
 

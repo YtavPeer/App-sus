@@ -5,9 +5,9 @@ export default {
     template: `
     <ul class="email-list">
     <li v-for="email in emails" class="email-preview-container" :key="email.id" >
-            <email-preview :email="email" @replay="replay" @star="star"/>
+            <email-preview :email="email" @replay="replay" @star="star" @delete="deleteEmail"/>
             <button @click="markAsRead(email)">Mark As Read</button>
-            <router-view :emailRoute="email" />
+            <!-- <router-view :emailRoute="email" /> -->
         </li>
     </ul>
     `,
@@ -20,6 +20,10 @@ export default {
         },
         star(email) {
             this.$emit('star', email)
+        },
+        deleteEmail(id) {
+            console.log(id, "list")
+            this.$emit('delete', id)
         }
     },
     components: {

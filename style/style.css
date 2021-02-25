@@ -158,14 +158,22 @@ button {
 
 
 
-.email-side-menu a.active{
+/* .email-side-menu a.active{
     background-color: #ff00002f ;
 
-}
+} */
 
 .email-side-menu a:hover {
     background-color: #ff000054;
+    transform:scale(1.1);
+    box-shadow:1px 1px 3px rgba(0,0,0,0.5);
+    transition:all 0s, background 0.2s;
+    z-index:10;
 }
+
+.current{
+    background:#ff00002f;
+  }
 
 
 .email-side-menu1 {
