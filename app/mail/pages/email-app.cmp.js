@@ -56,9 +56,10 @@ export default {
                         })
             },
             replay(email) {
-                  console.log('replaying.......')
-                  this.emailToEdit = email
-                  console.log(this.emailToEdit)
+                  this.emailToEdit = {
+                        subject: email.subject,
+                        sender: email.sender
+                  }
             },
             setFilter(filters) {
                   this.filters = filters
@@ -85,7 +86,7 @@ export default {
                   email.isStarred = !email.isStarred
                   emailService.update(email)
             },
-            deleteEmail(id) { //TODO: Extract to util function!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            deleteEmail(id) {
                   Swal.fire({
                         title: 'Are you sure?',
                         text: "You won't be able to revert this!",
@@ -102,13 +103,11 @@ export default {
                                           'Your file has been deleted.',
                                           'success'
                                     )
-                                    this.loadEmails() //How to render the correct route?
+                                    this.loadEmails()
                               })
                         }
                   })
             },
-
-
             sendToNote(emailData) {
                   this.$router.replace({ name: 'keep', query: { title: emailData.subject, txt: emailData.body } })
             }
@@ -148,12 +147,17 @@ export default {
             }
       },
       created() {
-     this.loadEmails()
+            this.loadEmails()
+
             const subject = this.$route.query.title
             const body = this.$route.query.txt
             console.log(subject, body)
             if (subject && body) this.dataFromNotes = { subject, body }
-            console.log(this.dataFromNotes, "data from nites")
+            else {
+                  const subject = this.$route.query.titleReplay
+                  const sender = this.$route.query.toReplay
+                  if (subject && sender) this.emailToEdit = { subject, sender }
+            }
       },
       components: {
             emailList,

@@ -38,21 +38,20 @@ export default {
     computed: {
         message() {
             return this.emailToEdit ? 'Replay Message' : 'New Message'
+        },
+        subjectForDisplay() {
+            if (this.email.subject.startsWith('Re: Re:')) return this.email.subject.slice(4)
         }
-        // subjectForEdit() {
-        //     console.log(this.email.subject, "this.email.subject")
-        //     if(!this.email.subject) return this.email.subject
-        //     return `Re:${this.email.subject}`
-        // }
     },
 
     watch: {
-        emailToEdit: function (newVal, oldVal) { // watch it
+        emailToEdit: function (newVal, oldVal) {
             console.log('Prop changed: ', newVal, ' | was: ', oldVal)
             this.email.subject = `Re: ${newVal.subject}`
+            this.email.subject = this.subjectForDisplay
             this.email.sender = newVal.sender
         },
-        emailFromNote: function (newVal, oldVal) { // watch it
+        emailFromNote: function (newVal, oldVal) {
             console.log('Prop changed: ', newVal, ' | was: ', oldVal)
             this.email.subject = newVal.subject
             this.emailb.body = newVal.body
@@ -60,11 +59,12 @@ export default {
 
     },
     created() {
-        console.log(this.emailFromNote, "emailFromNoteemailFromNoteemailFromNoteemailFromNote")
         if (this.emailToEdit) {
             this.email.subject = `Re: ${this.emailToEdit.subject}`
+            this.email.subject = this.subjectForDisplay
+
             this.email.sender = this.emailToEdit.sender
-        } else if(this.emailFromNote) {
+        } else if (this.emailFromNote) {
             this.email.subject = this.emailFromNote.subject
             this.email.body = this.emailFromNote.body
         }
