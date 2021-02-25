@@ -8,11 +8,11 @@ export default {
                               <div class="mainNoteContainer">
                                  <input class="takeNoteInput" name="title" @click="openRelevanteInput" v-model="newNote.title" placeholder="Take a note..."/>
                                  <div class="btn-container">
-                                    <img class="noteTypeIcon" @click="changeType('NoteTxt')" src="../../img/texticon.png" alt="" width=40>
-                                    <img class="noteTypeIcon" @click="changeType('NoteTodos')" src="../../img/list.png" alt="" width=40>
-                                    <img class="noteTypeIcon" @click="changeType('NoteImg')" src="../../img/imageicon.png" alt="" width=40>
-                                    <img class="noteTypeIcon" @click="changeType('NoteVideo')" src="../../img/videoicon.png" alt="" width=40>
-                                    <input type="color" v-model="newNote.color"/>
+                                    <img class="noteTypeIcon" @click="changeType('NoteTxt')" src="../../img/texticon.png" alt="" width=30>
+                                    <img class="noteTypeIcon" @click="changeType('NoteTodos')" src="../../img/list.png" alt="" width=30>
+                                    <img class="noteTypeIcon" @click="changeType('NoteImg')" src="../../img/imageicon.png" alt="" width=30>
+                                    <img class="noteTypeIcon" @click="changeType('NoteVideo')" src="../../img/videoicon.png" alt="" width=30>
+                                    <input class="colorNote" type="color" v-model="newNote.color"/>
                                  </div>
                               </div>
                   
@@ -24,7 +24,7 @@ export default {
                                 <input class="specificInput" ref="NoteVideo" v-if="newNote.noteType === 'NoteVideo'" name="NoteVideo" v-model="newNote.videoUrl" placeholder="Enter Video Url"/>
                                 <input class="specificInput" ref="NoteTodos" v-if="newNote.noteType === 'NoteTodos'" name="NoteTodos" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
                                 </div>
-                                <button class="specificInput" type="submit">Add</button>
+                                <button class="addNoteBtn" type="submit">Add</button>
                               </section> 
                   </form>
       </section>

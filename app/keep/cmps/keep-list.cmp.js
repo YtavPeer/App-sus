@@ -5,14 +5,26 @@ export default {
       props: ['dynamicNotes'],
       template: `
       <ul v-if="dynamicNotes" class="dynamicNotes-list">
-            <li v-for="(dynamicNote , idx) in dynamicNotes" :key="dynamicNote.id" class="dynamicNotes-preview-container" :style="{backgroundColor: dynamicNote.style.backgroundColor}">
+            <li v-for="(dynamicNote , idx) in dynamicNotes" :key="dynamicNote.id" class="dynamicNotes-preview-container card" :style="{backgroundColor: dynamicNote.style.backgroundColor}">
+
+            <div class="cards-top">
                   <img v-if="!dynamicNote.isPinned" class="noteTypeIcon pin" @click="pinNotes(dynamicNote)" src="../../img/push-pin.png" alt="" width=25>
                   <img v-if="dynamicNote.isPinned" class="noteTypeIcon pin" @click="pinNotes(dynamicNote)" src="../../img/office-push-pin.png" alt="" width=25>
+           </div>
+
+            <div class="cards-content">
                   <keep-preview :dynamicNote="dynamicNote" @toggleTodo="toggleTodo"></keep-preview>
+            </div>
+
+            <div class="cards-btn">
                   <img class="noteTypeIcon" @click="remove(dynamicNote)" src="../../img/delete.png" alt="" width=25>
-                  <button @click="edit(dynamicNote)">Edit</button>
-                  <input type="color" @input="changeColor($event,dynamicNote)"/>
+                  <img class="noteTypeIcon" @click="edit(dynamicNote)" src="../../img/edit-button.png" alt="" width=25>
+                  <!-- <button @click="edit(dynamicNote)">Edit</button> -->
+                  <input class="colorArticleBtn" type="color" @input="changeColor($event,dynamicNote)"/>
                   <img class="noteTypeIcon email" @click="sendEmail(dynamicNote)" src="../../img/send.png" alt="" width=25>
+            </div>
+
+                 
            </li>
       </ul>
       `,

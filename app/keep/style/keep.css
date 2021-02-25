@@ -1,27 +1,36 @@
 /* KEEP - APP */
 
+/*Basic */
+
+h2 {
+    margin: 0;
+    margin-block-end: 10px;
+}
 
 /* KEEP ADD */
 
-.create-note{
+.create-note {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-
 }
 
-.mainNoteContainer{
+.mainNoteContainer {
     width: 600px;
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    box-shadow:         3px 0px 5px px #ccc;
-
-
+    box-shadow: 3px 0px 5px 0px #ccc;
 }
 
-.takeNoteInput{
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.takeNoteInput {
     height: 40px;
     width: 300px;
     border-radius: 5px;
@@ -29,16 +38,15 @@
     border: 0px solid;
 }
 
-.specificContainer{
+.specificContainer {
     width: 600px;
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    box-shadow:         3px 3px 5px 2px #ccc;
+    box-shadow: 3px 3px 5px 2px #ccc;
 }
 
-
-.specificInput{
+.specificInput {
     height: 40px;
     width: 500px;
     border-radius: 5px;
@@ -46,26 +54,32 @@
     border: 0px solid;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* KEEP-ICON */
+
 .noteTypeIcon {
     cursor: pointer;
+    margin-inline-end: 5px;
+}
+
+.colorNote {
+    width: 30px;
+    cursor: pointer;
+}
+
+.addNoteBtn {
+    cursor: pointer;
+    width: 100%;
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin-inline-start: 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
 
 .pin {
@@ -85,20 +99,70 @@
     text-decoration: line-through;
 }
 
-
-
 /*KEEP -LIST */
 
 .dynamicNotes-list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+    margin: 0 50px;
+    padding: 0;
+    gap: 20px;
+    margin-block-start: 30px;
 }
 
+/*KEEP ARTICLE */
+
 .dynamicNotes-preview-container {
-    position: relative;
-    width: 250px;
-    background-color: cyan;
-    margin: 20px;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #e7e7e7;
+    border-radius: 20px;
     list-style-type: none;
     text-align: center;
+    padding: 20px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+/* CARD */
+
+.card {
+    border-radius: 15px;
+    padding: 1.5rem;
+    background: white;
+    position: relative;
+    transition: 0.4s ease-out;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover {
+    transform: translateY(20px);
+}
+
+.card:hover:before {
+    opacity: 1;
+}
+
+.card:hover .info {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* CARD END */
+
+.cards-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-block-start: 20px;
+}
+
+.colorArticleBtn {
+    width: 25px;
+    cursor: pointer;
+}
+
+/* title */
+
+.note-title {
+    text-shadow: hsl(60, 6%, 77%) 1px 1px 0px, #9C9C9C 2px 2px 0px;
 }
