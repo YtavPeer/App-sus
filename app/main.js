@@ -10,7 +10,7 @@ const options = {
             <!-- <userMsg /> -->
             <app-header />
             <router-view class="main-view" />
-            <footer class="footer"><p class="cofee-rights"> &copy; Coffeerights 2021</p></footer>
+            <!-- <footer class="footer"><p class="cofee-rights"> &copy; Coffeerights 2021</p></footer> -->
         </section>
     `,
       router: myRouter,

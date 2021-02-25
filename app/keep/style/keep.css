@@ -229,3 +229,7 @@ h2 {
 .logo{
     margin-inline-start: 70px;
 }
+
+.home-title{
+    cursor: pointer;
+}
