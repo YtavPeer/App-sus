@@ -9,6 +9,7 @@ export default {
     <router-link class="detail-preview" :to="'/email/'+email.id">Details</router-link>
     <button @click="replay">Replay</button>
     <button @click="star">Star</button>
+    <button @click="deleteEmail">Delete</button>
     </section>
     `,
     data() {
@@ -22,6 +23,9 @@ export default {
         },
         star() {
             this.$emit('star', this.email)
+        },
+        deleteEmail() {
+            this.$emit('delete', this.email.id)
         }
     },
     computed: {

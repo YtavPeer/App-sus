@@ -20,7 +20,7 @@ export default {
             <div class="flex">
                   <email-side-menu class="email-side-menu1" @sent-emails="sentEmails"/>
                   <!-- <email-list class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay"/> -->
-                  <router-view  class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay" @star="star"/>
+                  <router-view  class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay" @star="star" @delete="deleteEmail"/>
             </div>emails.container
       </section>
       `,
@@ -59,7 +59,7 @@ export default {
             replay(email) {
                   console.log('replaying.......')
                   this.emailToEdit = email
-                  console.log( this.emailToEdit)
+                  console.log(this.emailToEdit)
             },
             setFilter(filters) {
                   this.filters = filters
@@ -84,19 +84,41 @@ export default {
             star(email) {
                   email.isStarred = !email.isStarred
                   emailService.update(email)
+            },
+            deleteEmail(id) { //TODO: Extract to util function!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                  Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                  }).then((result) => {
+                        if (result.isConfirmed) {
+                              emailService.remove(id).then(() => {
+                                    Swal.fire(
+                                          'Deleted!',
+                                          'Your file has been deleted.',
+                                          'success'
+                                    )
+                                    this.loadEmails() //How to render the correct route?
+                              })
+                        }
+                  })
             }
       },
 
       computed: {
             emailsToShow() {
                   console.log("rendering") //TODO: Export to function
-                  if(this.sort === 'date') this.emails = this.emails.sort((email1, email2) => email2.sentAt - email1.sentAt)
+                  if (this.sort === 'date') this.emails = this.emails.sort((email1, email2) => email2.sentAt - email1.sentAt)
                   else this.emails = this.emails.sort((email1, email2) => {
-                        if(email1.subject < email2.subject) return -1
-                        else if(email1.subject > email2.subject) return 1
+                        if (email1.subject < email2.subject) return -1
+                        else if (email1.subject > email2.subject) return 1
                         return 0
                   })
-                  
+
 
                   if (!this.filters) return this.emails
                   const emailTxt = this.filters.byTxt.toLowerCase()
