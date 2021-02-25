@@ -165,22 +165,70 @@ button {
 
 .email-side-menu a:hover {
     background-color: #ff000054;
-    transform:scale(1.1);
-    box-shadow:1px 1px 3px rgba(0,0,0,0.5);
-    transition:all 0s, background 0.2s;
-    z-index:10;
+    transform: scale(1.1);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    transition: all 0s, background 0.2s;
+    z-index: 10;
 }
 
-.current{
-    background:#ff00002f;
-  }
+.current {
+    background: #ff00002f;
+}
 
 
 .email-side-menu1 {
-    flex: 1;
-    max-width: 300px; /* ??? check! */
+    flex: 2;
+    max-width: 300px;
+    /* ??? check! */
 }
 
 .email-list {
     flex: 9;
+}
+
+/*EMAIL PREVIEW */
+.email-preview {
+    padding: .5rem 1.5rem;
+    /* justify-content: space-around; */
+}
+
+.email-preview-content {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.email-preview-title {
+    margin-right: .3rem;
+}
+
+.email-preview-icons {
+    display: none;
+
+}
+
+.email-preview-icons-show {
+    display: block;
+    animation: fade_in_show 1.5s
+}
+
+@keyframes fade_in_show {
+    0% {
+        opacity: 0;
+        transform: scale(0)
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+.email-preview:hover {
+    color: white;
+    background-color: gray;
+    transform: scale(1.05);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    transition: all 0s, background 0.2s;
+    z-index: 10;
 }

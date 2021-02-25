@@ -3,10 +3,9 @@ import emailPreview from './email-preview.cmp.js'
 export default {
     props: ['emails'],
     template: `
-    <ul class="email-list">
+    <ul class="email-list clean-list ">
     <li v-for="email in emails" class="email-preview-container" :key="email.id" >
-            <email-preview :email="email" @replay="replay" @star="star" @delete="deleteEmail"/>
-            <button @click="markAsRead(email)">Mark As Read</button>
+            <email-preview :email="email" @replay="replay" @star="star" @delete="deleteEmail" @mark-as-read="markAsRead"/>
             <!-- <router-view :emailRoute="email" /> -->
         </li>
     </ul>

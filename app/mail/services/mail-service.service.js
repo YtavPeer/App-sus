@@ -22,7 +22,7 @@ const mail = {
     body: 'message',
     isRead: false,
     isStarred: false,
-    sendAt: 3231322
+    sendAt: 1614240148296
 }
 
 function getById(id) {
@@ -75,7 +75,7 @@ function _createEmails() {
             subject: 'Hi1',
             body: 'message',
             isRead: false,
-            sentAt: 3231322,
+            sentAt: 1614240148296,
             sender: 'michael@coding.com',
             nickname: 'michael',
             receiver: 'ytav@coding.com',
@@ -86,7 +86,7 @@ function _createEmails() {
             subject: 'Hi',
             body: 'message',
             isRead: false,
-            sentAt: 3231322,
+            sentAt: 1614240148296,
             sender: 'ytav@coding.com',
             nickname: 'michael',
             receiver: 'michael@coding.com',
@@ -97,7 +97,7 @@ function _createEmails() {
             subject: 'BAR!',
             body: 'Look at the cool bar',
             isRead: true,
-            sentAt: 3231322,
+            sentAt: 1614240148296,
             sender: 'michael@coding.com',
             nickname: 'michael',
             receiver: 'ytav@coding.com',
@@ -108,7 +108,7 @@ function _createEmails() {
             subject: 'This is yet another subject',
             body: 'Sender: Ytav Receiver: michael',
             isRead: true,
-            sentAt: 3231322,
+            sentAt: 1614240148296,
             sender: 'ytav@coding.com',
             nickname: 'michael',
             receiver: 'michael@coding.com',
@@ -119,7 +119,7 @@ function _createEmails() {
             subject: 'This is subject',
             body: 'Sender: michael Receiver: Ytav',
             isRead: false,
-            sentAt: 3231322,
+            sentAt: 1614240148296,
             sender: 'michael@coding.com',
             nickname: 'michael',
             receiver: 'ytav@coding.com',
