@@ -1,15 +1,17 @@
 import emailPreview from './email-preview.cmp.js'
+import emailList from './email-list.cmp.js';
 
 export default {
     props: ['emails'],
     template: `
-    <ul class="email-list">
+    <!-- <ul class="email-list">
     <li v-for="email in sentEmails" class="email-preview-container" :key="email.id" >
             <email-preview :email="email" @replay="replay" @star="star"  @delete="deleteEmail"/>
             <button @click="markAsRead(email)">Mark As Read</button>
             <router-view :emailRoute="email" />
         </li>
-    </ul>
+    </ul> -->
+    <email-list class="email-list"  v-if="emails.length" :emails="sentEmails" @mark-as-read="markAsRead"  @replay="replay" @star="star" @delete="deleteEmail" @send-to-note="sendToNote"/>
     `,
     data() {
         return {
@@ -20,7 +22,7 @@ export default {
         markAsRead(email) {
             this.$emit('mark-as-read', email)
         } ,
-        replay(email) {a
+        replay(email) {
             this.$emit('replay', email)
         },
         star(email) {
@@ -29,6 +31,9 @@ export default {
         deleteEmail(id) {
             console.log(id, "list")
             this.$emit('delete', id)
+        },
+        sendToNote(dataToSend) {
+            this.$emit('send-to-note', dataToSend)
         }
     },
     computed: {
@@ -40,6 +45,7 @@ export default {
         console.log('created')
     },
     components: {
-        emailPreview
+        emailPreview,
+        emailList
     },
 }

@@ -41,6 +41,7 @@ export default {
         },
         subjectForDisplay() {
             if (this.email.subject.startsWith('Re: Re:')) return this.email.subject.slice(4)
+            else return this.email.subject
         }
     },
 
