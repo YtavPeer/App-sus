@@ -10,19 +10,19 @@ export default {
                            <input name="title" @click="openRelevanteInput" v-model="newNote.title" placeholder="Take a note..."/>
 
                            <template v-if="isTakeNote">
-                              <textarea ref="inputTXT" v-if="newNote.noteType === 'NoteTxt'" name="content" v-model="newNote.content" placeholder="Take a note..." rows="2">
+                              <textarea ref="NoteTxt" v-if="newNote.noteType === 'NoteTxt'" name="NoteTxt" v-model="newNote.content" placeholder="Take a note..." rows="2">
                               </textarea>
-                              <input ref="imgNote" v-if="newNote.noteType === 'NoteImg'" name="imageNote" v-model="newNote.imgUrl" placeholder="Enter Image Url"/>
-                              <input ref="videoNote" v-if="newNote.noteType === 'NoteVideo'" name="videoNote" v-model="newNote.videoUrl" placeholder="Enter Video Url"/>
-                              <input ref="todosNote" v-if="newNote.noteType === 'NoteTodos'" name="todosNote" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
+                              <input ref="NoteImg" v-if="newNote.noteType === 'NoteImg'" name="NoteImg" v-model="newNote.imgUrl" placeholder="Enter Image Url"/>
+                              <input ref="NoteVideo" v-if="newNote.noteType === 'NoteVideo'" name="NoteVideo" v-model="newNote.videoUrl" placeholder="Enter Video Url"/>
+                              <input ref="NoteTodos" v-if="newNote.noteType === 'NoteTodos'" name="NoteTodos" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
                            </template> 
 
                       <button type="submit">Add</button>
                   </form>
-                  <img class="noteTypeIcon" @click="changeToTodos" src="../../img/list.png" alt="" width=25>
-                  <img class="noteTypeIcon" @click="changeToImage" src="../../img/imageicon.png" alt="" width=25>
-                  <img class="noteTypeIcon" @click="changeToVideo" src="../../img/videoicon.png" alt="" width=25>
-                  <img class="noteTypeIcon" @click="changeToText" src="../../img/texticon.png" alt="" width=25>
+                  <img class="noteTypeIcon" @click="changeType('NoteTodos')" src="../../img/list.png" alt="" width=25>
+                  <img class="noteTypeIcon" @click="changeType('NoteImg')" src="../../img/imageicon.png" alt="" width=25>
+                  <img class="noteTypeIcon" @click="changeType('NoteVideo')" src="../../img/videoicon.png" alt="" width=25>
+                  <img class="noteTypeIcon" @click="changeType('NoteTxt')" src="../../img/texticon.png" alt="" width=25>
       </section>
       `,
       data() {
@@ -37,7 +37,6 @@ export default {
                         color: null,
                   },
                   isTakeNote: false,
-                  elTxt: null,
             }
       },
       methods: {
@@ -52,40 +51,34 @@ export default {
                   this.newNote.todos = null;
                   this.newNote.color = null;
             },
-            changeToTodos() {
+            changeType(noteType) {
                   this.isTakeNote = true;
                   this.newNote.title = 'title';
-                  this.newNote.noteType = 'NoteTodos'
-                  // this.$refs.todosNote.focus()
-            },
-            changeToText() {
-                  this.isTakeNote = true;
-                  this.newNote.title = 'title';
-                  this.newNote.noteType = 'NoteTxt';
-                  // this.$refs.txtNote.focus()
-            },
-            changeToImage() {
-                  this.isTakeNote = true;
-                  this.newNote.title = 'title';
-                  this.newNote.noteType = 'NoteImg';
-                  // this.$refs.imgNote.focus();
-            },
-            changeToVideo() {
-                  this.isTakeNote = true;
-                  this.newNote.title = 'title';
-                  this.newNote.noteType = 'NoteVideo';
-                  // this.$refs.videoNote.focus();
+                  this.newNote.noteType = noteType;
+                  this.$refs.noteType.focus();
+
+                  this.nextTick()
+                  .then( () => {
+                        return this.focusInput(noteType)
+                  })
             },
             openRelevanteInput() {
                   this.isTakeNote = true;
                   this.newNote.title = 'title';
-                  // console.log('refs is', this.$refs)
-                  // const elTxt = this.$refs.txtNote;
-                  // console.log('eltxt', elTxt);
-                  // this.elTxt.focus();
-                  console.log('this refs', this.$refs.inputTXT)
+        
+                  this.nextTick()
+                  .then( () => {
+                        return this.focusInput()
+                  })
+                  // console.log('this refs', this.$refs.content)
+                  this.$refs.content.focus()
                   // this.$refs.txtNote.focus()
+            }, 
+            focusInput(noteType) {
+                  console.log('this refs', this.$refs.content)
+                  this.$refs.noteType.focus()
             }
+
       },
       components: {
 
@@ -96,5 +89,15 @@ export default {
       created() {
             this.newNote.noteType = 'NoteTxt';
             console.log(this.$refs)
+
+            //handle getting email to keep
+            if (this.$route.query.title) {
+                  this.newNote.title = this.$route.query.title;
+                  this.isTakeNote = true;
+            }
+            if (this.$route.query.txt) {
+                  this.newNote.content = this.$route.query.txt;
+                  this.isTakeNote = true;
+            }
       }
 }
