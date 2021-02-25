@@ -1,11 +1,23 @@
+@import '../app//keep/style/keep.css';
 /* IMPORT KEEP AND EMAIL CSS */
 
-@import '../app//keep/style/keep.css';
+/* FONTS */
+
+@font-face {
+    font-family:  meri-regular;
+    src: url(./fonts/Merriweather-Regular.ttf);
+  }
+
+  html{
+      font-family: 'meri-regular';
+  }
+  
+
+
 
 button {
     cursor: pointer;
 }
-
 
 .app-header {
     background-color: lightgreen;
@@ -14,6 +26,27 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* APP -HOME */
+.section-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.app-home-box{
+    cursor: pointer;
+}
+
+.hero-title{
+    font-size: 3em;
+    text-align: center;
+}
+
+.home-title{
+    font-size: 2.5em;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 
@@ -86,9 +119,7 @@ button {
     transform: translate(-50%, -50%);
 }
 
-.btn:link,
-.btn:visited,
-.btn {
+.btn:link, .btn:visited, .btn {
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
@@ -107,7 +138,6 @@ button {
 
 .btn:active {
     transform: translateY(-1px);
-
 }
 
 .btn::after {
@@ -138,7 +168,6 @@ button {
 .btn-animated-color::after {
     background-color: #ff00008a;
 }
-
 
 .btn::after {
     content: "";
@@ -213,6 +242,7 @@ button {
 }
 
 /* Email side menu */
+
 .email-side-menu {
     /* background-color: lightskyblue; */
 }
@@ -226,11 +256,6 @@ button {
     line-height: 40px;
     padding-left: 8px;
 }
-
-
-
-
-
 
 /* .email-side-menu a.active{
     background-color: #ff00002f ;
@@ -247,13 +272,10 @@ button {
     border-bottom-right-radius: 7px;
 }
 
-
-
 .current {
     /* background: #ff00002f; */
     background-color: #fce8e6;
 }
-
 
 .email-side-menu1 {
     flex: 2;
@@ -266,7 +288,7 @@ button {
     flex: 9;
 }
 
-.email-list > li {
+.email-list>li {
     margin-right: 40px;
     cursor: pointer;
 }
@@ -276,6 +298,7 @@ button {
 }
 
 /*EMAIL PREVIEW */
+
 .email-preview {
     padding: .5rem 1.5rem;
     /* justify-content: space-around; */
@@ -293,7 +316,6 @@ button {
 
 .email-preview-icons {
     display: none;
-
 }
 
 .email-preview-icons-show {
@@ -307,7 +329,6 @@ button {
         opacity: 0;
         transform: scale(0)
     }
-
     100% {
         opacity: 1;
         transform: scale(1)
@@ -336,24 +357,21 @@ button {
     z-index: 10;
 }
 
-
-
 /* APP-SEARCH */
 
-.app-search{
+.app-search {
     opacity: 0.7;
     align-self: center;
-    
 }
 
-.app-search-input{
+.app-search-input {
     height: 35px;
     width: 200px;
     border: 0px;
     outline: transparent;
 }
 
-.app-select-filter{
+.app-select-filter {
     height: 35px;
     margin: 0px;
     padding: 0px;
@@ -361,7 +379,7 @@ button {
     outline: transparent;
 }
 
-.app-select-sort{
+.app-select-sort {
     height: 35px;
     margin: 0px;
     padding: 0px;
@@ -369,27 +387,26 @@ button {
     outline: transparent;
 }
 
-.icon-menu{
+.icon-menu {
     margin-right: .5rem;
 }
 
-
 @media (max-width: 1190px) {
-    .btn{
+    .btn {
         padding: 7.5px 20px;
         font-size: 1rem;
     }
 }
 
 @media (max-width: 810px) {
-    .btn{
+    .btn {
         font-size: .8rem;
     }
 }
 
 /* EMAIL DETAILS */
 
-.sender-info > *:not(:last-child) {
+.sender-info>*:not(:last-child) {
     margin-right: 1.5rem;
 }
 
@@ -397,26 +414,26 @@ button {
     margin-bottom: 2rem;
 }
 
-.details-email{
+.details-email {
     margin-left: 20px;
 }
 
-.details-email > h1 {
+.details-email>h1 {
     font-size: 30px;
     margin-bottom: 2rem;
 }
 
-.details-email > img {
+.details-email>img {
     cursor: pointer;
 }
 
-.sender-email-nickname{
+.sender-email-nickname {
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.email-detail-body{
+.email-detail-body {
     margin-bottom: 2rem;
-    white-space: pre-wrap; 
+    white-space: pre-wrap;
 }
