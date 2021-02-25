@@ -3,9 +3,17 @@ export default {
       template: `
       <section class="keep-filter">
 
-         <label> Search for note: </label>    
-         <input type="text" @input="setFilter" placeholder="Search..." v-model="filterBy.name">
+          
+         <div class="search">
+          <input type="text" @input="setFilter" id="box" v-model="filterBy.name" class="form-control" placeholder="Search anything...">
+            <div class="button-src">
+             <button>GET</button>
+           </div>
+         </div>
+ 
 
+    
+       
       </section>
       `,
       data() {
@@ -21,7 +29,7 @@ export default {
             },
       },
       components: {
-           
+
       }
 }
 
