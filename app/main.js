@@ -9,8 +9,8 @@ const options = {
         <section>
             <!-- <userMsg /> -->
             <app-header />
-            <router-view />
-            <footer class="footer"><p> &copy; Coffeerights 2021</p></footer>
+            <router-view class="main-view" />
+            <!-- <footer class="footer"><p class="cofee-rights"> &copy; Coffeerights 2021</p></footer> -->
         </section>
     `,
       router: myRouter,

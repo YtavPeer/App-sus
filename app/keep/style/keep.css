@@ -225,3 +225,11 @@ h2 {
     justify-content: center;
     margin-block-end: 20px;
 }
+
+.logo{
+    margin-inline-start: 70px;
+}
+
+.home-title{
+    cursor: pointer;
+}
