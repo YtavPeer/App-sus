@@ -1,0 +1,305 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* background-color: wheat; */
+
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+} */
+
+
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+/* APP */
+
+.book-app {
+    background-color: wheat;
+}
+
+/* FILTER */
+
+.book-filter {
+    padding: 10px;
+    margin: 10px;
+}
+
+
+/* LIST */
+
+.book-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* PREVIEW */
+
+.book-preview-container {
+    position: relative;
+    width: 150px;
+    /* height: 200px; */
+    border: 5px solid gray;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.book-preview-container h1 {
+    margin-bottom: 10px;
+}
+
+.book-preview-container img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.book-preview {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: inherit;
+}
+
+.preview-content {
+    display: flex;
+    margin: 0 5px;
+    justify-content: space-between;
+}
+
+.detail-preview {
+    margin: 2px;
+}
+
+
+/* DETAILS */
+
+.book-details {
+    background-color: brown;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.book-details>* {
+    margin-bottom: 10px;
+}
+
+.book-details>h1 {
+    font-size: 40px;
+}
+
+.book-details>.price {
+    font-size: 36px;
+}
+
+
+.book-details>button {
+    align-self: flex-start;
+}
+
+/* img {
+    height: 150px;
+    width: 150px;
+} */
+
+.book-description {
+    display: flex;
+}
+
+.book-description>button {
+    margin-left: 5px;
+}
+
+/* HEADER */
+
+
+/* .app-header {
+    background-color: lightgreen;
+    padding: 10px;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+/* MODAL */
+.modal {
+    color: grey;
+    font-family: lato-bold;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    padding: 1rem;
+    background-color: white;
+    opacity: 1;
+    z-index: 1;
+    transition: opacity 0.8s;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* REVIEWS */
+
+.review-form {
+    display: flex;
+}
+
+.review-form>* {
+    margin-right: 5px;
+}
+
+.review-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: .5rem;
+}
+
+.review-details>* {
+    margin-bottom: .2rem;
+}
+
+.review-preview {
+    margin-bottom: .5rem;
+}
+
+.review-details>h2 {
+    text-transform: capitalize;
+}
+
+.date-rate {
+    display: flex;
+}
+
+.date-rate>* {
+    margin-right: 1rem;
+}
+
+.book-review-container {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 2px solid snow;
+    margin-bottom: .5rem;
+}
+
+.book-review-container>*:not(:last-child) {
+    margin-right: 1rem;
+}
+
+/*HOME */
+
+
+.animated-left {
+    animation: moveInLeft 2s ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.home-title {
+    margin-left: 50px;
+    margin-top: 50px;
+    /* left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px; */
+    font-size: 50px;
+}
+
+/*ABOUT*/
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-container>* {
+    margin-bottom: 10px;
+}
+
+
+.about-img {
+    border-radius: 50%;
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.success {
+    color: green
+}
+
+.error {
+    color: red;
+}
+
+.links {
+    display: flex;
+}
+
+.links>* {
+    color: white;
+    text-decoration: none;
+}
+
+.links>*:hover {
+    color: blue;
+}
+
+
+
+.prev-link {
+    margin-right: 10px;
+}
+
+.search-input {
+    float: left;
+    margin-left: 20px;
+}
