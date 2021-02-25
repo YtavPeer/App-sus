@@ -5,7 +5,7 @@ export default {
       props: ['dynamicNotes'],
       template: `
       <ul v-if="dynamicNotes" class="dynamicNotes-list">
-            <li v-for="(dynamicNote , idx) in dynamicNotes" :key="dynamicNote.id" class="dynamicNotes-preview-container card" :style="{backgroundColor: dynamicNote.style.backgroundColor}">
+            <li v-for="(dynamicNote , idx) in dynamicNotes" :key="dynamicNote.id" class="dynamicNotes-preview-container card" :style="{borderColor: dynamicNote.style.backgroundColor}">
 
             <div class="cards-top">
                   <img v-if="!dynamicNote.isPinned" class="noteTypeIcon pin" @click="pinNotes(dynamicNote)" src="../../img/push-pin.png" alt="" width=25>
