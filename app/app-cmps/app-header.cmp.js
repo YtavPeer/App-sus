@@ -22,7 +22,9 @@ export default {
 
       <header class="main-header ">
         <div class="header-container main-container flex space-between center-align">
-            <div class="logo">Books</div>
+            <div class="logo">APPSUS</div>
+            <!-- <img src="../../img/logo.jpg" alt="" height=70px> -->
+
             <app-search></app-search>
             <ul class="navbar-conntainer clean-list flex ">
             <router-link class="flex center-align nav-item" to="/">Home</router-link>

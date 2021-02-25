@@ -490,6 +490,20 @@ button {
 
 
 
+/* Footer */
+  
+
+.footer{
+    background-color: #292929;
+    height: 70px;
+    color: white;
+    text-align: center;
+}
+ 
+
+.cofee-rights{
+    line-height: 70px;
+}
 
 
 

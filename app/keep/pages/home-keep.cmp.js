@@ -7,7 +7,6 @@ export default {
       name: 'home-keep',
       template: `
      <section class="home-keep">
-          <h1>home-keep</h1>
           <keep-filter @filtered="setFilter"></keep-filter>
           <keep-add @addNote="addNewNote"></keep-add>
           <keep-list v-if="notesToShow" :dynamicNotes="notesToShow" 
