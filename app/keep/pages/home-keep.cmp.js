@@ -15,7 +15,8 @@ export default {
           @editNote="editNote"
           @changeColor="changeColor"
           @togglePin="togglePin"
-          @toggleTodo="toggleTodo">
+          @toggleTodo="toggleTodo"
+          @sendEmail="sendEmail">
           </keep-list>
       </section>
       `,
@@ -259,6 +260,10 @@ export default {
                   }
                   keepService.editNote(dynamicNote)
                         .then(res => this.loadsNotes())
+            },
+            sendEmail(note) {
+                  console.log('getting note to send', note);
+                  this.$router.replace({name:'email',query: { title: note.info.title ,txt:note.info.txt }})
             }
       },
       computed: {

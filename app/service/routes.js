@@ -25,6 +25,11 @@ const routes = [
                         component: starredEmailList
                   },
                   {
+                        name: 'email',
+                        path: ':noteInfo?',
+                        component: emailList
+                  },
+                  {
                         path: '/',
                         component: emailList
                   }

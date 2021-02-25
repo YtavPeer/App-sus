@@ -10,11 +10,11 @@ export default {
                            <input name="title" @click="openRelevanteInput" v-model="newNote.title" placeholder="Take a note..."/>
 
                            <template v-if="isTakeNote">
-                              <textarea v-if="newNote.noteType === 'NoteTxt'" name="content" v-model="newNote.content" placeholder="Take a note..." rows="2">
+                              <textarea ref="inputTXT" v-if="newNote.noteType === 'NoteTxt'" name="content" v-model="newNote.content" placeholder="Take a note..." rows="2">
                               </textarea>
-                              <input v-if="newNote.noteType === 'NoteImg'" name="imageNote" v-model="newNote.imgUrl" placeholder="Enter Image Url"/>
-                              <input v-if="newNote.noteType === 'NoteVideo'" name="videoNote" v-model="newNote.videoUrl" placeholder="Enter Video Url"/>
-                              <input v-if="newNote.noteType === 'NoteTodos'" name="todosNote" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
+                              <input ref="imgNote" v-if="newNote.noteType === 'NoteImg'" name="imageNote" v-model="newNote.imgUrl" placeholder="Enter Image Url"/>
+                              <input ref="videoNote" v-if="newNote.noteType === 'NoteVideo'" name="videoNote" v-model="newNote.videoUrl" placeholder="Enter Video Url"/>
+                              <input ref="todosNote" v-if="newNote.noteType === 'NoteTodos'" name="todosNote" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
                            </template> 
 
                       <button type="submit">Add</button>
@@ -37,6 +37,7 @@ export default {
                         color: null,
                   },
                   isTakeNote: false,
+                  elTxt: null,
             }
       },
       methods: {
@@ -52,26 +53,48 @@ export default {
                   this.newNote.color = null;
             },
             changeToTodos() {
+                  this.isTakeNote = true;
+                  this.newNote.title = 'title';
                   this.newNote.noteType = 'NoteTodos'
+                  // this.$refs.todosNote.focus()
             },
             changeToText() {
-                  this.newNote.noteType = 'NoteTxt'
+                  this.isTakeNote = true;
+                  this.newNote.title = 'title';
+                  this.newNote.noteType = 'NoteTxt';
+                  // this.$refs.txtNote.focus()
             },
             changeToImage() {
-                  this.newNote.noteType = 'NoteImg'
+                  this.isTakeNote = true;
+                  this.newNote.title = 'title';
+                  this.newNote.noteType = 'NoteImg';
+                  // this.$refs.imgNote.focus();
             },
             changeToVideo() {
-                  this.newNote.noteType = 'NoteVideo'
+                  this.isTakeNote = true;
+                  this.newNote.title = 'title';
+                  this.newNote.noteType = 'NoteVideo';
+                  // this.$refs.videoNote.focus();
             },
             openRelevanteInput() {
                   this.isTakeNote = true;
                   this.newNote.title = 'title';
+                  // console.log('refs is', this.$refs)
+                  // const elTxt = this.$refs.txtNote;
+                  // console.log('eltxt', elTxt);
+                  // this.elTxt.focus();
+                  console.log('this refs', this.$refs.inputTXT)
+                  // this.$refs.txtNote.focus()
             }
       },
       components: {
 
       },
+      mounted() {
+            // this.elTxt = this.$refs.txtNote;
+      },
       created() {
             this.newNote.noteType = 'NoteTxt';
+            console.log(this.$refs)
       }
 }
