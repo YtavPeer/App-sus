@@ -489,19 +489,7 @@ button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.email-filter{
+    align-self: center;
+    margin: 20px;
+}
