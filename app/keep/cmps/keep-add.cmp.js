@@ -5,24 +5,28 @@ export default {
                   <form class="create-note" v-on:submit.prevent="createNote()">
                            <!-- <img onclick="onClickStrokeColorPallete()" class="icon changeStrokeColor"
                                     src="./ICONS/paint-board-and-brush.png" alt=""> -->
-                              <input type="color" v-model="newNote.color"/>
-
-                           <input name="title" @click="openRelevanteInput" v-model="newNote.title" placeholder="Take a note..."/>
-
-                           <template v-if="isTakeNote">
-                              <textarea ref="NoteTxt" v-if="newNote.noteType === 'NoteTxt'" name="NoteTxt" v-model="newNote.content" placeholder="Take a note..." rows="2">
-                              </textarea>
-                              <input ref="NoteImg" v-if="newNote.noteType === 'NoteImg'" name="NoteImg" v-model="newNote.imgUrl" placeholder="Enter Image Url"/>
-                              <input ref="NoteVideo" v-if="newNote.noteType === 'NoteVideo'" name="NoteVideo" v-model="newNote.videoUrl" placeholder="Enter Video Url"/>
-                              <input ref="NoteTodos" v-if="newNote.noteType === 'NoteTodos'" name="NoteTodos" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
-                           </template> 
-
-                      <button type="submit">Add</button>
+                              <div class="mainNoteContainer">
+                                 <input class="takeNoteInput" name="title" @click="openRelevanteInput" v-model="newNote.title" placeholder="Take a note..."/>
+                                 <div class="btn-container">
+                                    <img class="noteTypeIcon" @click="changeType('NoteTxt')" src="../../img/texticon.png" alt="" width=40>
+                                    <img class="noteTypeIcon" @click="changeType('NoteTodos')" src="../../img/list.png" alt="" width=40>
+                                    <img class="noteTypeIcon" @click="changeType('NoteImg')" src="../../img/imageicon.png" alt="" width=40>
+                                    <img class="noteTypeIcon" @click="changeType('NoteVideo')" src="../../img/videoicon.png" alt="" width=40>
+                                    <input type="color" v-model="newNote.color"/>
+                                 </div>
+                              </div>
+                  
+                             <section class="specificContainer" v-if="isTakeNote">
+                                   <div class="section">
+                                <textarea class="specificInput" ref="NoteTxt" v-if="newNote.noteType === 'NoteTxt'" name="NoteTxt" v-model="newNote.content" placeholder="Take a note..." rows="2">
+                                </textarea>
+                                <input class="specificInput" ref="NoteImg" v-if="newNote.noteType === 'NoteImg'" name="NoteImg" v-model="newNote.imgUrl" placeholder="Enter Image Url"/>
+                                <input class="specificInput" ref="NoteVideo" v-if="newNote.noteType === 'NoteVideo'" name="NoteVideo" v-model="newNote.videoUrl" placeholder="Enter Video Url"/>
+                                <input class="specificInput" ref="NoteTodos" v-if="newNote.noteType === 'NoteTodos'" name="NoteTodos" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
+                                </div>
+                                <button class="specificInput" type="submit">Add</button>
+                              </section> 
                   </form>
-                  <img class="noteTypeIcon" @click="changeType('NoteTodos')" src="../../img/list.png" alt="" width=25>
-                  <img class="noteTypeIcon" @click="changeType('NoteImg')" src="../../img/imageicon.png" alt="" width=25>
-                  <img class="noteTypeIcon" @click="changeType('NoteVideo')" src="../../img/videoicon.png" alt="" width=25>
-                  <img class="noteTypeIcon" @click="changeType('NoteTxt')" src="../../img/texticon.png" alt="" width=25>
       </section>
       `,
       data() {
@@ -66,13 +70,10 @@ export default {
                   this.isTakeNote = true;
                   this.newNote.title = 'title';
         
-                  this.nextTick()
-                  .then( () => {
-                        return this.focusInput()
-                  })
-                  // console.log('this refs', this.$refs.content)
-                  this.$refs.content.focus()
-                  // this.$refs.txtNote.focus()
+                  // this.nextTick()
+                  // .then( () => {
+                  //       return this.focusInput()
+                  // })
             }, 
             focusInput(noteType) {
                   console.log('this refs', this.$refs.content)

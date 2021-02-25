@@ -1,21 +1,69 @@
 /* KEEP - APP */
 
-.dynamicNotes-list {
-    display: flex;
-}
-
-.dynamicNotes-preview-container {
-    position: relative;
-    width: 250px;
-    background-color: cyan;
-    margin: 20px;
-    border-radius: 10px;
-    list-style-type: none;
-    text-align: center;
-}
 
 /* KEEP ADD */
 
+.create-note{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.mainNoteContainer{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    box-shadow:         3px 0px 5px px #ccc;
+
+
+}
+
+.takeNoteInput{
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 0px solid;
+}
+
+.specificContainer{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    box-shadow:         3px 3px 5px 2px #ccc;
+}
+
+
+.specificInput{
+    height: 40px;
+    width: 500px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 0px solid;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* KEEP-ICON */
 .noteTypeIcon {
     cursor: pointer;
 }
@@ -35,4 +83,22 @@
 .todo-done {
     color: gray;
     text-decoration: line-through;
+}
+
+
+
+/*KEEP -LIST */
+
+.dynamicNotes-list {
+    display: flex;
+}
+
+.dynamicNotes-preview-container {
+    position: relative;
+    width: 250px;
+    background-color: cyan;
+    margin: 20px;
+    border-radius: 10px;
+    list-style-type: none;
+    text-align: center;
 }
