@@ -6,7 +6,7 @@ export default {
   template: `
               <section class="note-img">
     
-                <h1> this is img component</h1>
+                <h2>{{dynamicNote.info.title}}</h2>
                 <img :src="dynamicNote.info.url" alt="this is image component">
     
               </section>

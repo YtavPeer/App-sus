@@ -3,7 +3,7 @@ export default {
     props: ['dynamicNote'],
     template: `
               <section class="note-video">
-                  <h1> this is video component</h1>
+                    <h2>{{dynamicNote.info.title}}</h2>
                      <video width="100%" height="180" controls>
                         <source :src="dynamicNote.info.url" type="video/mp4">
                         <source :src="dynamicNote.info.url" type="video/ogg">

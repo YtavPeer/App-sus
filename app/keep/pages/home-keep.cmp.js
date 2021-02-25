@@ -8,9 +8,9 @@ export default {
       template: `
      <section class="home-keep">
           <h1>home-keep</h1>
-          <keep-filter></keep-filter>
+          <keep-filter @filtered="setFilter"></keep-filter>
           <keep-add @addNote="addNewNote"></keep-add>
-          <keep-list v-if="dynamicNotes" :dynamicNotes="dynamicNotes" 
+          <keep-list v-if="notesToShow" :dynamicNotes="notesToShow" 
           @removeNote="removeNote" 
           @editNote="editNote"
           @changeColor="changeColor"></keep-list>
@@ -80,7 +80,13 @@ export default {
                               const newTodosNote = keepService.getEmptyNoteTodos();
                               newTodosNote.info.title = newNote.title;
                               newTodosNote.style.backgroundColor = newNote.color;
-                              newTodosNote.info.todos = newNote.todos.split(';');
+                              let todosArr = newNote.todos.split(';')
+                              console.log(todosArr);
+                              todosArr.forEach(todo => {
+                                    newTodosNote.info.todos.push(
+                                          { txt: todo, doneAt: new Date(), isDone: false }
+                                    )
+                              });
                               console.log(newTodosNote);
                               keepService.addNote(newTodosNote)
                                     .then(res => this.loadsNotes())
@@ -202,7 +208,13 @@ export default {
                               ]).then((result) => {
                                     if (result.value) {
                                           note.info.title = result.value[0];
-                                          note.info.todos = result.value[1].split(';');
+                                          let todosArr = result.value[1].split(';');
+                                          note.info.todos = [];
+                                          todosArr.forEach(todo => {
+                                                note.info.todos.push(
+                                                      { txt: todo, doneAt: new Date(), isDone: false }
+                                                )
+                                          });
                                           keepService.editNote(note)
                                                 .then(res => this.loadsNotes())
                                           Swal.fire({
@@ -217,7 +229,23 @@ export default {
                   }
             },
             changeColor(note, color) {
-                  console.log(note, color)
+                  console.log('get color', note, color)
+                  keepService.changeColor(note, color)
+                        .then(res => console.log('color update'))
+
+            },
+            setFilter(filterValues) {
+                  this.filterBy = filterValues;
+            }
+      },
+      computed: {
+            notesToShow() {
+                  if (!this.filterBy) return this.dynamicNotes
+                  const searchStr = this.filterBy.name.toLowerCase();
+                  const notesForDisplay = this.dynamicNotes.filter(notes => {
+                        return notes.info.title.toLowerCase().includes(searchStr)
+                  })
+                  return notesForDisplay;
             }
       },
       components: {
