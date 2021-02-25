@@ -8,9 +8,14 @@ export default {
   props: ['dynamicNote'],
   template: `
       <section class="keep-preview"> 
-           <component :is="dynamicNote.type" :dynamicNote="dynamicNote"></component>
+           <component @toggleTodo="toggleTodo" :is="dynamicNote.type" :dynamicNote="dynamicNote"></component>
       </section>
       `,
+  methods: {
+    toggleTodo(dynamicNote, idx){
+      this.$emit('toggleTodo', dynamicNote, idx)
+    }
+  },
   components: {
     NoteTxt,
     NoteImg,

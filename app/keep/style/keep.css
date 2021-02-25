@@ -20,12 +20,19 @@
     cursor: pointer;
 }
 
-.pin{
+.pin {
     margin: 5px;
     position: absolute;
     right: 0;
 }
 
-.todo-toggle{
+.todo-toggle {
     cursor: pointer;
+}
+
+/* KEEP NOTE TODO */
+
+.todo-done {
+    color: gray;
+    text-decoration: line-through;
 }

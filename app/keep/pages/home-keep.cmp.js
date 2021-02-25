@@ -14,7 +14,8 @@ export default {
           @removeNote="removeNote" 
           @editNote="editNote"
           @changeColor="changeColor"
-          @togglePin="togglePin">
+          @togglePin="togglePin"
+          @toggleTodo="toggleTodo">
           </keep-list>
       </section>
       `,
@@ -27,7 +28,12 @@ export default {
       methods: {
             loadsNotes() {
                   keepService.query()
-                        .then(notes => this.dynamicNotes = notes);
+                        .then(notes => {
+                              notes.sort((a, b) => {
+                                    return b.isPinned - a.isPinned
+                              })
+                              return this.dynamicNotes = notes
+                        });
             },
             removeNote(note) {
                   Swal.fire({
@@ -242,7 +248,17 @@ export default {
             togglePin(noteToToggle) {
                   noteToToggle.isPinned = !noteToToggle.isPinned
                   keepService.editNote(noteToToggle)
-                        .then(res => loadsNotes())
+                        .then(res => this.loadsNotes())
+            },
+            toggleTodo(dynamicNote, idx) {
+                  dynamicNote.info.todos[idx].isDone = !dynamicNote.info.todos[idx].isDone
+                  if (dynamicNote.info.todos[idx].isDone === true) {
+                        dynamicNote.info.todos[idx].doneAt = new Date();
+                  } else {
+                        dynamicNote.info.todos[idx].doneAt = null;
+                  }
+                  keepService.editNote(dynamicNote)
+                        .then(res => this.loadsNotes())
             }
       },
       computed: {
@@ -252,7 +268,6 @@ export default {
                   const notesForDisplay = this.dynamicNotes.filter(notes => {
                         return notes.info.title.toLowerCase().includes(searchStr)
                   })
-
                   return notesForDisplay;
             }
       },

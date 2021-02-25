@@ -6,12 +6,17 @@ export default {
                            <!-- <img onclick="onClickStrokeColorPallete()" class="icon changeStrokeColor"
                                     src="./ICONS/paint-board-and-brush.png" alt=""> -->
                               <input type="color" v-model="newNote.color"/>
-                           <input name="title" v-model="newNote.title" placeholder="Title"/>
-                        <textarea v-if="newNote.noteType === 'NoteTxt'" name="content" v-model="newNote.content" placeholder="Text goes here..." rows="2">
-                        </textarea>
-                        <input v-if="newNote.noteType === 'NoteImg'" name="imageNote" v-model="newNote.imgUrl" placeholder="Enter Image Url"/>
-                        <input v-if="newNote.noteType === 'NoteVideo'" name="videoNote" v-model="newNote.videoUrl" placeholder="Enter Video Url"/>
-                        <input v-if="newNote.noteType === 'NoteTodos'" name="todosNote" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
+
+                           <input name="title" @click="openRelevanteInput" v-model="newNote.title" placeholder="Take a note..."/>
+
+                           <template v-if="isTakeNote">
+                              <textarea v-if="newNote.noteType === 'NoteTxt'" name="content" v-model="newNote.content" placeholder="Take a note..." rows="2">
+                              </textarea>
+                              <input v-if="newNote.noteType === 'NoteImg'" name="imageNote" v-model="newNote.imgUrl" placeholder="Enter Image Url"/>
+                              <input v-if="newNote.noteType === 'NoteVideo'" name="videoNote" v-model="newNote.videoUrl" placeholder="Enter Video Url"/>
+                              <input v-if="newNote.noteType === 'NoteTodos'" name="todosNote" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
+                           </template> 
+
                       <button type="submit">Add</button>
                   </form>
                   <img class="noteTypeIcon" @click="changeToTodos" src="../../img/list.png" alt="" width=25>
@@ -30,7 +35,8 @@ export default {
                         videoUrl: null,
                         todos: null,
                         color: null,
-                  }
+                  },
+                  isTakeNote: false,
             }
       },
       methods: {
@@ -56,6 +62,10 @@ export default {
             },
             changeToVideo() {
                   this.newNote.noteType = 'NoteVideo'
+            },
+            openRelevanteInput() {
+                  this.isTakeNote = true;
+                  this.newNote.title = 'title';
             }
       },
       components: {
