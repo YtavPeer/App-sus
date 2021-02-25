@@ -13,7 +13,9 @@ export default {
           <keep-list v-if="notesToShow" :dynamicNotes="notesToShow" 
           @removeNote="removeNote" 
           @editNote="editNote"
-          @changeColor="changeColor"></keep-list>
+          @changeColor="changeColor"
+          @togglePin="togglePin">
+          </keep-list>
       </section>
       `,
       data() {
@@ -236,6 +238,11 @@ export default {
             },
             setFilter(filterValues) {
                   this.filterBy = filterValues;
+            },
+            togglePin(noteToToggle) {
+                  noteToToggle.isPinned = !noteToToggle.isPinned
+                  keepService.editNote(noteToToggle)
+                        .then(res => loadsNotes())
             }
       },
       computed: {
@@ -245,6 +252,7 @@ export default {
                   const notesForDisplay = this.dynamicNotes.filter(notes => {
                         return notes.info.title.toLowerCase().includes(searchStr)
                   })
+
                   return notesForDisplay;
             }
       },

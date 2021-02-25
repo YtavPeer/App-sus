@@ -32,8 +32,7 @@ export default {
                   this.$emit('changeColor', dynamicNote, color)
             },
             pinNotes(dynamicNote) {
-                  //need to implement pin data
-                  console.log(dynamicNote)
+                  this.$emit('togglePin', dynamicNote)
             },
             sendEmail(dynamicNote) {
                   //need to implement send email by bus
