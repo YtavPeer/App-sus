@@ -47,7 +47,14 @@ const routes = [
       },
       {
             path: '/keep',
-            component: homeKeep
+            component: homeKeep,
+            children: [
+                  {
+                        name: 'keep',
+                        path: ':emailInfo?',
+                        component: homeKeep
+                  },
+            ]
       },
 ]
 

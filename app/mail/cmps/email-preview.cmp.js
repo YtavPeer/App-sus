@@ -12,14 +12,15 @@ export default {
         <!-- <router-link class="detail-preview" :to="'/email/'+email.id">Details</router-link> -->
         <div>{{timeFromDate}}</div>
         <div class="email-preview-icons" :class="iconsState">
-            <button @click="replay">Replay</button>
-            <button @click="star">Star</button>
-            <button @click="deleteEmail">Delete</button>
-            <img src="../../img/delete2.png" alt="" width="25">
-            <img src="../../img/star.png" alt="" width="25">
-            <img src="../../img/replay.png" alt="" width="25">
+            <!-- <button @click="replay">Replay</button> -->
+            <!-- <button @click="star">Star</button> -->
+            <!-- <button @click="deleteEmail">Delete</button> -->
+            <img src="../../img/delete2.png" alt="" width="25" @click="deleteEmail">
+            <img :src="imgStarSrc" alt="" width="25"  @click="star">
+            <img src="../../img/replay.png" alt="" width="25"  @click="replay">
+            <img :src="imgCheckSrc" alt="" width="25"  @click="markAsRead(email)">
             
-            <button @click="markAsRead(email)">Mark As Read</button>
+            <!-- <button @click="markAsRead(email)">Mark As Read</button> -->
         </div>
 
     </section>
@@ -49,7 +50,6 @@ export default {
         },
         hideIcons() {
             this.hover = false
-
         }
     },
     computed: {
@@ -66,6 +66,13 @@ export default {
             return {
                 'email-preview-icons-show': this.hover
             }
+        },
+        imgStarSrc() {
+            return this.email.isStarred ? '../../img/star.png' : '../../img/star-empty.png'
+        },
+        imgCheckSrc() {
+            console.log(this.email)
+            return this.email.isRead ? '../../img/checked (1).png' : '../../img/checked.png'
         }
     },
     components: {

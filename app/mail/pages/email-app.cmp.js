@@ -21,7 +21,8 @@ export default {
                   <email-side-menu class="email-side-menu1" @sent-emails="sentEmails"/>
                   <!-- <email-list class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay"/> -->
                   <router-view  class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay" @star="star" @delete="deleteEmail"/>
-            </div>emails.container
+            </div>
+            <button @click="sendToNote">Send To Note</button>
       </section>
       `,
       data() {
@@ -106,6 +107,12 @@ export default {
                               })
                         }
                   })
+            },
+
+            
+            sendToNote() {
+                  console.log("sending to ote")
+                  this.$router.replace({ name: 'keep', query: { title: 'email title', txt: 'email body' } })
             }
       },
 
@@ -144,6 +151,8 @@ export default {
       },
       created() {
             this.loadEmails()
+            console.log("titleeeee", this.$route.query.title)
+            console.log("txtttttttttttt", this.$route.query.txt)
       },
       components: {
             emailList,

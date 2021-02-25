@@ -208,6 +208,7 @@ button {
 }
 
 .email-preview-icons-show {
+    margin-right: 50px;
     display: block;
     animation: fade_in_show 1.5s
 }
@@ -222,6 +223,19 @@ button {
         opacity: 1;
         transform: scale(1)
     }
+}
+
+.email-preview-icons > img {
+    cursor: pointer;
+    transition: transform .8s;
+}
+
+.email-preview-icons > img:not(:first-child) {
+    margin-left: .5rem;
+}
+
+.email-preview-icons > img:hover {
+    transform: scale(1.4);
 }
 
 .email-preview:hover {
