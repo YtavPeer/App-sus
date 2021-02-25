@@ -224,6 +224,7 @@ h2 {
     display: flex;
     justify-content: center;
     margin-block-end: 20px;
+    margin-block-start: 30px;
 }
 
 .logo{
