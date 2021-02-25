@@ -1,10 +1,15 @@
+import emailStatus from './email-status.cmp.js';
+
 export default {
+    props: ['percentages'],
     template: `
     <section class="email-side-menu">
+    <div class="btn btn-animated-color btn-animated" @click="compose" >Compose +</div>
         <ul class="clean-list">
             <li v-for="(category, idx) in categories">
             <router-link :to="category.route" :class="{current: idx === active}" @click.native="changeActive(idx)">{{category.name}}</router-link> <!-- STYLE! -->
             </li>
+            <email-status :percentages="percentages" />
 <!-- 
             <li>
                 <router-link to="/email">Inbox</router-link> 
@@ -35,6 +40,9 @@ export default {
         },
         changeActive(idx) {
             this.active = idx
+        },
+        compose() {
+            this.$emit('compose')
         }
     },
     computed: {
@@ -43,5 +51,8 @@ export default {
                 active: idx === this.active
             }
         }
+    },
+    components: {
+        emailStatus
     }
 }

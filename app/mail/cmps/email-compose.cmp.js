@@ -1,5 +1,5 @@
 export default {
-    props: ['emailToEdit'],
+    props: ['emailToEdit', 'emailFromNote'],
     template: `
     <section class="modal center">
         <div class="modal-email-headline flex center-align">
@@ -52,14 +52,22 @@ export default {
             this.email.subject = `Re: ${newVal.subject}`
             this.email.sender = newVal.sender
         },
+        emailFromNote: function (newVal, oldVal) { // watch it
+            console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+            this.email.subject = newVal.subject
+            this.emailb.body = newVal.body
+        },
 
     },
     created() {
+        console.log(this.emailFromNote, "emailFromNoteemailFromNoteemailFromNoteemailFromNote")
         if (this.emailToEdit) {
             this.email.subject = `Re: ${this.emailToEdit.subject}`
             this.email.sender = this.emailToEdit.sender
+        } else if(this.emailFromNote) {
+            this.email.subject = this.emailFromNote.subject
+            this.email.body = this.emailFromNote.body
         }
-        console.log(this.emailToEdit)
     },
     updated() {
         console.log(this.emailToEdit)

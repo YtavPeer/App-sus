@@ -11,18 +11,15 @@ import emailSideMenu from '../cmps/email-side-menu.cmp.js';
 export default {
       template: `
       <section class="home-mail">
-            <h1>home-mail</h1>
-            <button @click="compose">Compose</button>
-            <email-status :percentages="precForBar" />
-            <email-compose v-if="emailToEdit || isEmailToAdd" @add-email="addEmail" @close-modal="closeModal" :emailToEdit="emailToEdit" />
-            <h2>list-mail</h2>
-            <email-filter @filtered="setFilter" @sorted="setSort"/>
+            <!-- <button @click="compose">Compose</button> -->
+            <!-- <email-status :percentages="precForBar" /> -->
+            <email-compose v-if="emailToEdit || isEmailToAdd ||dataFromNotes" @add-email="addEmail" @close-modal="closeModal" :emailToEdit="emailToEdit" :emailFromNote="dataFromNotes" />
+            <!-- <email-filter @filtered="setFilter" @sorted="setSort"/> -->
             <div class="flex">
-                  <email-side-menu class="email-side-menu1" @sent-emails="sentEmails"/>
+                  <email-side-menu class="email-side-menu1" @sent-emails="sentEmails" @compose="compose" :percentages="precForBar"/>
                   <!-- <email-list class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay"/> -->
-                  <router-view  class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay" @star="star" @delete="deleteEmail"/>
+                  <router-view  class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay" @star="star" @delete="deleteEmail" @send-to-note="sendToNote"/>
             </div>
-            <button @click="sendToNote">Send To Note</button>
       </section>
       `,
       data() {
@@ -31,7 +28,8 @@ export default {
                   emailToEdit: null,
                   isEmailToAdd: false,
                   filters: null,
-                  sort: 'date'
+                  sort: 'date',
+                  dataFromNotes: null
             }
       },
       methods: {
@@ -76,6 +74,7 @@ export default {
             closeModal() {
                   this.isEmailToAdd = false
                   this.emailToEdit = null
+                  this.dataFromNotes = null
             },
             sentEmails() {
                   this.emails = this.emails.filter(email => {
@@ -109,10 +108,9 @@ export default {
                   })
             },
 
-            
-            sendToNote() {
-                  console.log("sending to ote")
-                  this.$router.replace({ name: 'keep', query: { title: 'email title', txt: 'email body' } })
+
+            sendToNote(emailData) {
+                  this.$router.replace({ name: 'keep', query: { title: emailData.subject, txt: emailData.body } })
             }
       },
 
@@ -150,9 +148,12 @@ export default {
             }
       },
       created() {
-            this.loadEmails()
-            console.log("titleeeee", this.$route.query.title)
-            console.log("txtttttttttttt", this.$route.query.txt)
+     this.loadEmails()
+            const subject = this.$route.query.title
+            const body = this.$route.query.txt
+            console.log(subject, body)
+            if (subject && body) this.dataFromNotes = { subject, body }
+            console.log(this.dataFromNotes, "data from nites")
       },
       components: {
             emailList,

@@ -19,6 +19,7 @@ export default {
             <img :src="imgStarSrc" alt="" width="25"  @click="star">
             <img src="../../img/replay.png" alt="" width="25"  @click="replay">
             <img :src="imgCheckSrc" alt="" width="25"  @click="markAsRead(email)">
+            <img src="../../img/send.png" alt="" width="25" @click="sendToNote">
             
             <!-- <button @click="markAsRead(email)">Mark As Read</button> -->
         </div>
@@ -27,7 +28,7 @@ export default {
     `,
     data() {
         return {
-            hover:false
+            hover: false
             // isRead: this.email.isRead
         }
     },
@@ -50,6 +51,9 @@ export default {
         },
         hideIcons() {
             this.hover = false
+        },
+        sendToNote() {
+            this.$emit('send-to-note', { subject: this.email.subject, body: this.email.body })
         }
     },
     computed: {
@@ -71,7 +75,6 @@ export default {
             return this.email.isStarred ? '../../img/star.png' : '../../img/star-empty.png'
         },
         imgCheckSrc() {
-            console.log(this.email)
             return this.email.isRead ? '../../img/checked (1).png' : '../../img/checked.png'
         }
     },
