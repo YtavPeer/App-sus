@@ -13,7 +13,7 @@ export default {
     `,
     data() {
         return {
-            emailList: this.emails
+            // emailList: this.emails
         }
     },
     methods: {
@@ -33,9 +33,9 @@ export default {
     },
     computed: {
         sentEmails() {
-            return this.emailList.filter(email => email.sender === 'michael@coding.com')
+            return this.emails.filter(email => email.sender === 'michael@coding.com')
         }
-    },
+    }, 
     created() {
         console.log('created')
     },

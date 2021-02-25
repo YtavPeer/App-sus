@@ -14,7 +14,11 @@ export default {
     `,
     computed: {
         barValue() {
-            return { width: this.percentages + '%' };
+            return { 
+                width: this.percentages + '%',
+                'border-bottom-right-radius': Math.floor(this.percentages) === 100 ? 10 + 'px' : 0 ,
+                'border-top-right-radius':  Math.floor(this.percentages) ? 10 + 'px' : 0 ,
+            };
         },
         percentagesToDisplay() {
             return Math.floor(this.percentages) + '%'

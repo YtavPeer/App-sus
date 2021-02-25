@@ -30,12 +30,16 @@ button {
     height: 2rem;
     border: 1px solid #575757;
     margin: 0 auto;
+    margin-top: 1rem;
+    border-radius: 10px;
 }
 
 .email-bar-value {
     background-color: lightgreen;
     height: 100%;
     transition: all 2s;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .perc-email-txt {
@@ -93,7 +97,7 @@ button {
     position: relative;
     padding: 15px 40px;
     cursor: pointer;
-    margin: 20px;
+    margin: 16px 0 16px 16px;
 }
 
 .btn:hover {
@@ -214,13 +218,15 @@ button {
 }
 
 .email-side-menu a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     height: 40px;
     width: calc(100% - 8px);
     text-decoration: none;
     line-height: 40px;
     padding-left: 8px;
 }
+
 
 
 
@@ -260,6 +266,11 @@ button {
     flex: 9;
 }
 
+.email-list > li {
+    margin-right: 40px;
+    cursor: pointer;
+}
+
 .email-list>li:not(:last-child) {
     border-bottom: 1px solid rgba(128, 128, 128, 0.178);
 }
@@ -288,7 +299,7 @@ button {
 .email-preview-icons-show {
     margin-right: 50px;
     display: block;
-    animation: fade_in_show 1.5s
+    animation: fade_in_show .7s
 }
 
 @keyframes fade_in_show {
@@ -356,4 +367,56 @@ button {
     padding: 0px;
     border: 0px;
     outline: transparent;
+}
+
+.icon-menu{
+    margin-right: .5rem;
+}
+
+
+@media (max-width: 1190px) {
+    .btn{
+        padding: 7.5px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 810px) {
+    .btn{
+        font-size: .8rem;
+    }
+}
+
+/* EMAIL DETAILS */
+
+.sender-info > *:not(:last-child) {
+    margin-right: 1.5rem;
+}
+
+.sender-info {
+    margin-bottom: 2rem;
+}
+
+.details-email{
+    margin-left: 20px;
+}
+
+.details-email > h1 {
+    font-size: 30px;
+    margin-bottom: 2rem;
+}
+
+.details-email > img {
+    cursor: pointer;
+}
+
+.sender-email-nickname{
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.email-detail-body{
+    margin-bottom: 2rem;
+    white-space: pre-wrap; 
 }

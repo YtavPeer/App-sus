@@ -25,6 +25,9 @@ const mail = {
     sendAt: 1614240148296
 }
 
+// const users = [
+//     {nickname: 'Michael', mail: 'michael@coding.com'},  {nickname: 'Ytav', mail: 'ytav@coding.com'},   {nickname: 'Puku', mail: 'puki@coding.com'}]
+
 function getById(id) {
     console.log(id)
     return storageService.get(EMAIL_KEY, id)
@@ -47,9 +50,12 @@ function query() {
 }
 
 function add(email) {
+    // const currUser = users[utilService.getRandomInt(0, 4)]
     email.id = utilService.makeId()
     email.isRead = false
     email.sentAt = Date.now()
+    // email.sender = currUser.mail
+    // email.nickname =  currUser.nickname
     email.sender = 'michael@coding.com'
     email.nickname =  'michael'
     email.isStarred = false

@@ -43,7 +43,8 @@ const routes = [
       },
       {
             path: '/email/:emailId',
-            component: emailDetails
+            component: emailDetails,
+            name: 'emailDetails'
       },
       {
             path: '/keep',

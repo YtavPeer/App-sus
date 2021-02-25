@@ -3,25 +3,19 @@ import longText from './long-text.cmp.js';
 export default {
     props: ['email'],
     template: `
-    <section class="email-preview flex center-align space-between" @mouseover="showIcons" @mouseleave="hideIcons" :class="markRead">
+    <section class="email-preview flex center-align space-between" @mouseover="showIcons" @mouseleave="hideIcons" @click="navigateToDetails" :class="markRead">
         <h1>{{email.nickname}}</h1>
         <div class="email-preview-content">
             <h1 class="email-preview-title">{{email.subject}} - </h1>
             <long-text :txt="email.body"/>
         </div>
-        <!-- <router-link class="detail-preview" :to="'/email/'+email.id">Details</router-link> -->
         <div>{{timeFromDate}}</div>
         <div class="email-preview-icons" :class="iconsState">
-            <!-- <button @click="replay">Replay</button> -->
-            <!-- <button @click="star">Star</button> -->
-            <!-- <button @click="deleteEmail">Delete</button> -->
-            <img src="../../img/delete2.png" alt="" width="25" @click="deleteEmail">
-            <img :src="imgStarSrc" alt="" width="25"  @click="star">
-            <img src="../../img/replay.png" alt="" width="25"  @click="replay">
-            <img :src="imgCheckSrc" alt="" width="25"  @click="markAsRead(email)">
-            <img src="../../img/send.png" alt="" width="25" @click="sendToNote">
-            
-            <!-- <button @click="markAsRead(email)">Mark As Read</button> -->
+            <img src="../../img/delete2.png" alt="" width="25" @click.stop="deleteEmail">
+            <img :src="imgStarSrc" alt="" width="25"  @click.stop="star">
+            <img src="../../img/replay.png" alt="" width="25"  @click.stop="replay">
+            <img :src="imgCheckSrc" alt="" width="25"  @click.stop="markAsRead(email)">
+            <img src="../../img/send.png" alt="" width="25" @click.stop="sendToNote">            
         </div>
 
     </section>
@@ -54,6 +48,9 @@ export default {
         },
         sendToNote() {
             this.$emit('send-to-note', { subject: this.email.subject, body: this.email.body })
+        },
+        navigateToDetails() {
+            this.$router.replace({ name: 'emailDetails', params: { emailId: this.email.id } })
         }
     },
     computed: {

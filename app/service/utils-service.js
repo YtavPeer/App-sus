@@ -1,7 +1,7 @@
 export const utilService = {
       saveToStorage,
       loadFromStorage,
-      makeId
+      makeId,getRandomInt
 }
 
 function saveToStorage(key, value) {
@@ -21,3 +21,10 @@ function makeId(length = 5) {
       }
       return txt;
 }
+
+
+function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+    }
