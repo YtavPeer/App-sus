@@ -117,7 +117,6 @@ h2 {
     grid-auto-rows: auto; */
     columns: auto 4;
     column-gap: 50px;
-    row-gap: 150px;
     margin: 0 50px;
     padding: 50px;
     margin-block-start: 70px;
@@ -139,6 +138,18 @@ h2 {
     padding: 20px;
     box-shadow: 3px 3px 5px 6px #ccc;
 }
+
+
+
+/* :not(:nth-child(4n+1) */
+.dynamicNotes-list li:hover{ 
+    box-shadow: 2px 12px 25px grey;
+    /* transform:scale(1.1); */
+   -webkit-transition:  box-shadow .6s ease-in;
+   transition:  transform .4s ease-in;
+ }
+
+
 
 /* CARD */
 

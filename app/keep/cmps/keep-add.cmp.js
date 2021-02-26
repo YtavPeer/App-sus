@@ -22,9 +22,9 @@ export default {
                                    <div class="section">
                                    <textarea class="specificInput" ref="contentText" v-show="newNote.noteType === 'NoteTxt'" name="NoteTxt" v-model="newNote.content" placeholder="Take a note..." rows="2">
                                    </textarea>
-                                   <input class="specificInput" ref="NoteImg" v-if="newNote.noteType === 'NoteImg'" name="NoteImg" v-model="newNote.imgUrl" placeholder="Enter Image Url"/>
-                                   <input class="specificInput" ref="NoteVideo" v-if="newNote.noteType === 'NoteVideo'" name="NoteVideo" v-model="newNote.videoUrl" placeholder="Enter Video Url"/>
-                                   <input class="specificInput" ref="NoteTodos" v-if="newNote.noteType === 'NoteTodos'" name="NoteTodos" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
+                                   <input class="specificInput" ref="contentImg" v-if="newNote.noteType === 'NoteImg'" name="NoteImg" v-model="newNote.imgUrl" placeholder="Enter Image Url"/>
+                                   <input class="specificInput" ref="contentVideo" v-if="newNote.noteType === 'NoteVideo'" name="NoteVideo" v-model="newNote.videoUrl" placeholder="Enter Video Url"/>
+                                   <input class="specificInput" ref="contentTodos" v-if="newNote.noteType === 'NoteTodos'" name="NoteTodos" v-model="newNote.todos" placeholder="Enter Todos seperate by ; "/>
                                 </div>
                                 <button class="addNoteBtn" type="submit">Add</button>
                               </section> 
@@ -50,10 +50,35 @@ export default {
       methods: {
             createNote() {
                   console.log('emit data to father');
-                  if (this.newNote.content === '' || this.newNote.content === null) {
-                        Swal.fire('You cant add note without content')
-                        return false;
+
+                  if (this.newNote.noteType === 'NoteTxt') {
+                        if (this.newNote.content === '' || this.newNote.content === null) {
+                              Swal.fire('You cant add note without content')
+                              return false;
+                        }
                   }
+
+                  if (this.newNote.noteType === 'NoteImg') {
+                        if (this.newNote.imgUrl === '' || this.newNote.imgUrl === null) {
+                              Swal.fire('You cant add note image without img url')
+                              return false;
+                        }
+                  }
+
+                  if (this.newNote.noteType === 'NoteVideo') {
+                        if (this.newNote.videoUrl === '' || this.newNote.videoUrl === null) {
+                              Swal.fire('You cant add note video without video url')
+                              return false;
+                        }
+                  }
+
+                  if (this.newNote.noteType === 'NoteTodos') {
+                        if (this.newNote.todos === '' || this.newNote.todos === null) {
+                              Swal.fire('You cant add note todos without todos')
+                              return false;
+                        }
+                  }
+
                   if (this.newNote.title === '' || this.newNote.title === null || this.newNote.title === 'title') {
                         Swal.fire('Please add also a title')
                         return false;
@@ -73,12 +98,29 @@ export default {
                   this.isTakeNote = true;
                   this.newNote.title = 'title';
                   this.newNote.noteType = noteType;
-                  this.$refs.noteType.focus();
+                  switch (noteType) {
+                        case 'NoteImg':
+                              this.imageFocus()
+                              break;
 
-                  this.nextTick()
-                        .then(() => {
-                              return this.focusInput(noteType)
-                        })
+                        case 'NoteVideo':
+                              this.videoFocus()
+                              break;
+
+                        case 'NoteTodos':
+                              this.todosFocus()
+
+                              break;
+
+                        case 'NoteTxt':
+                              this.openRelevanteInput()
+                              break;
+
+                        default:
+                              break;
+                  }
+
+
             },
             openRelevanteInput() {
                   this.isTakeNote = true;
@@ -96,10 +138,46 @@ export default {
                         }, 200)
                   }
             },
-            focusInput(noteType) {
-                  console.log('this refs', this.$refs.content)
-                  this.$refs.noteType.focus()
+            imageFocus() {
+                  if (!this.isFirstMainClick) {
+                        this.$refs.mainInput.blur()
+                  }
+
+                  console.log('data if undefind or not', this.$refs.contentImg);
+                  if (!this.isFirstMainClick) {
+                        setTimeout(() => {
+                              this.$refs.contentImg.focus();
+                              this.isFirstMainClick = true
+                        }, 200)
+                  }
             },
+            videoFocus() {
+                  if (!this.isFirstMainClick) {
+                        this.$refs.mainInput.blur()
+                  }
+
+                  console.log('data if undefind or not', this.$refs.contentVideo);
+                  if (!this.isFirstMainClick) {
+                        setTimeout(() => {
+                              this.$refs.contentVideo.focus();
+                              this.isFirstMainClick = true
+                        }, 200)
+                  }
+            },
+            todosFocus() {
+                  if (!this.isFirstMainClick) {
+                        this.$refs.mainInput.blur()
+                  }
+
+                  console.log('data if undefind or not', this.$refs.contentTodos);
+                  if (!this.isFirstMainClick) {
+                        setTimeout(() => {
+                              this.$refs.contentTodos.focus();
+                              this.isFirstMainClick = true
+                        }, 200)
+                  }
+            },
+
             clickChangeColor() {
                   this.$refs.colorPicker.style.display = 'block';
                   this.$refs.colorPicker.focus()
