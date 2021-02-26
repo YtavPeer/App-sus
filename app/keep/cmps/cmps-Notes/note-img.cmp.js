@@ -5,9 +5,13 @@ export default {
   props: ['dynamicNote'],
   template: `
               <section class="note-img">
-    
-                <h2 class="note-title">{{dynamicNote.info.title}}</h2>
+                  <img class="noteTypeIcon"  src="../../img/imageicon.png" alt="" width=25>
+                  <hr class="article-icon" style="height:1px;border:none;color:#ccc;background-color:#ccc;" />
+                  
+                  <h2 class="note-title">{{dynamicNote.info.title}}</h2>
                   <img height=150px :src="dynamicNote.info.url" alt="this is image component">
+
+                  <hr class="hr-article" style="height:1px;border:none;color:#ccc;background-color:#ccc;" />
               </section>
               `,
   computed: {
