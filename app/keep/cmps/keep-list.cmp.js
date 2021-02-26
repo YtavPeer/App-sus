@@ -9,8 +9,8 @@ export default {
 
 
                   <div class="cards-top">
-                        <img v-if="!dynamicNote.isPinned" class="noteTypeIcon pin" @click="pinNotes(dynamicNote)" src="../../img/push-pin.png" alt="" width=25>
-                        <img v-if="dynamicNote.isPinned" class="noteTypeIcon pin" @click="pinNotes(dynamicNote)" src="../../img/office-push-pin.png" alt="" width=25>
+                        <img v-if="!dynamicNote.isPinned" class="noteTypeIcon pin" @click="pinNotes(dynamicNote)" src="../../img/push-pin.png" alt="" width=20>
+                        <img v-if="dynamicNote.isPinned" class="noteTypeIcon pin" @click="pinNotes(dynamicNote)" src="../../img/office-push-pin.png" alt="" width=20>
                  </div>
       
                   <div class="cards-content">
@@ -18,13 +18,16 @@ export default {
                   </div>
            
            
+                  
 
                <div class="cards-btn">
-                  <img class="noteTypeIcon" @click="remove(dynamicNote)" src="../../img/delete.png" alt="" width=30 height=30>
-                  <img class="noteTypeIcon" @click="edit(dynamicNote)" src="../../img/edit-button.png" alt="" width=30 height=30>
-                  <!-- <button @click="edit(dynamicNote)">Edit</button> -->
-                  <input class="colorArticleBtn" type="color" @input="changeColor($event,dynamicNote)"/>
-                  <img class="noteTypeIcon email" @click="sendEmail(dynamicNote)" src="../../img/send.png" alt="" width=30 height=30>
+                  <img class="noteTypeIcon" @click="remove(dynamicNote)" src="../../img/delete.png" alt="" width=20 height=20>
+                  <img class="noteTypeIcon" @click="edit(dynamicNote)" src="../../img/edit-button.png" alt="" width=20 height=20>
+    
+                  <img class="noteTypeIcon email" @click="sendEmail(dynamicNote)" src="../../img/send.png" alt="" width=20 height=20>
+
+                  <input class="colorArticleBtn" type="color" @input="changeColor($event,dynamicNote)" v-model="dynamicNote.style.backgroundColor" />
+
               </div>
            
 
@@ -34,6 +37,8 @@ export default {
       `,
       data() {
             return {
+                  color: null,
+                  isTakeColor: false
             }
       },
       methods: {
@@ -44,6 +49,7 @@ export default {
                   this.$emit('editNote', dynamicNote);
             },
             changeColor(event, dynamicNote) {
+
                   var color = event.target.value
                   this.$emit('changeColor', dynamicNote, color)
             },
@@ -57,7 +63,7 @@ export default {
             },
             toggleTodo(dynamicNote, idx) {
                   this.$emit('toggleTodo', dynamicNote, idx)
-            }
+            },
       },
       computed: {
 

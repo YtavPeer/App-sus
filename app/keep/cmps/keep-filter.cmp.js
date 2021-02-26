@@ -4,15 +4,23 @@ export default {
       <section class="keep-filter">
 
           
-         <div class="search">
-          <input type="text" @input="setFilter" id="box" v-model="filterBy.name" class="form-control" placeholder="Search anything...">
-            <div class="button-src">
-             <button>GET</button>
-           </div>
+         <div class="searchContainer">
+               <div class="search-input">
+
+               <input type="text" @input="setFilter" id="box" v-model="filterBy.name"  placeholder="Search anything...">
+
+               </div>
+
+               <div class="search-btn">
+                        <button>GET</button>
+
+
+               </div>
+
          </div>
  
 
-    
+        
        
       </section>
       `,

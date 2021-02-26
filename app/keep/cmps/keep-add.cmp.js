@@ -8,11 +8,13 @@ export default {
                               <div class="mainNoteContainer">
                                  <input class="takeNoteInput" name="title" @click="openRelevanteInput" v-model="newNote.title" placeholder="Take a note..."/>
                                  <div class="btn-container">
-                                    <img class="noteTypeIcon" @click="changeType('NoteTxt')" src="../../img/texticon.png" alt="" width=30>
-                                    <img class="noteTypeIcon" @click="changeType('NoteTodos')" src="../../img/list.png" alt="" width=30>
-                                    <img class="noteTypeIcon" @click="changeType('NoteImg')" src="../../img/imageicon.png" alt="" width=30>
-                                    <img class="noteTypeIcon" @click="changeType('NoteVideo')" src="../../img/videoicon.png" alt="" width=30>
-                                    <input class="colorNote" type="color" v-model="newNote.color"/>
+                                    <img class="noteTypeIcon" @click="changeType('NoteTxt')" src="../../img/texticon.png" alt="" width=20 />
+                                    <img class="noteTypeIcon" @click="changeType('NoteTodos')" src="../../img/list.png" alt="" width=20 />
+                                    <img class="noteTypeIcon" @click="changeType('NoteImg')" src="../../img/imageicon.png" alt="" width=20 />
+                                    <img class="noteTypeIcon" @click="changeType('NoteVideo')" src="../../img/videoicon.png" alt="" width=20 />
+
+                                          <img class="noteTypeIcon" @click="clickChangeColor"  src="../../img/color-wheel.png" alt="" width=20>
+                                          <input class="colorpickerer"  ref="colorPicker"  :style="{visibility: isTakeColor ? 'visible' : 'hidden'}" type="color" v-model="newNote.color"  tabindex=-1 >
                                  </div>
                               </div>
                   
@@ -41,6 +43,7 @@ export default {
                         color: null,
                   },
                   isTakeNote: false,
+                  isTakeColor: false,
             }
       },
       methods: {
@@ -62,24 +65,24 @@ export default {
                   this.$refs.noteType.focus();
 
                   this.nextTick()
-                  .then( () => {
-                        return this.focusInput(noteType)
-                  })
+                        .then(() => {
+                              return this.focusInput(noteType)
+                        })
             },
             openRelevanteInput() {
                   this.isTakeNote = true;
                   this.newNote.title = 'title';
-        
-                  // this.nextTick()
-                  // .then( () => {
-                  //       return this.focusInput()
-                  // })
-            }, 
+            },
             focusInput(noteType) {
                   console.log('this refs', this.$refs.content)
                   this.$refs.noteType.focus()
-            }
-
+            },
+            clickChangeColor() {
+                  this.$refs.colorPicker.style.display = 'block';
+                  this.$refs.colorPicker.focus()
+                  this.$refs.colorPicker.value = "#3333ee";
+                  this.$refs.colorPicker.click();
+            },
       },
       components: {
 
