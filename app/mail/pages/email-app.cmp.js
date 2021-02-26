@@ -124,7 +124,8 @@ export default {
                   })
 
 
-                  if (!this.filters || this.filters.readState === 'all') return this.emails
+                  //TODO: FIX HERE search
+                  if (!this.filters || this.filters.readState === 'all') return this.emails 
                   const emailTxt = this.filters.byTxt.toLowerCase()
                   const isRead = this.filters.readState === 'read' ? true : false
                   const emailsToShow = this.emails.filter(email => {
