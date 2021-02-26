@@ -5,12 +5,12 @@ export default {
       props: ['dynamicNotes'],
       template: `
       <ul v-if="dynamicNotes" class="dynamicNotes-list">
-            <li v-for="(dynamicNote , idx) in dynamicNotes" :key="dynamicNote.id" class="dynamicNotes-preview-container card" :style="{borderColor: dynamicNote.style.backgroundColor}">
+            <li v-for="(dynamicNote , idx) in dynamicNotes" :key="dynamicNote.id" class="dynamicNotes-preview-container" :style="{borderColor: dynamicNote.style.backgroundColor}">
 
 
                   <div class="cards-top">
-                        <img v-if="!dynamicNote.isPinned" class="noteTypeIcon pin" @click="pinNotes(dynamicNote)" src="../../img/push-pin.png" alt="" width=20>
-                        <img v-if="dynamicNote.isPinned" class="noteTypeIcon pin" @click="pinNotes(dynamicNote)" src="../../img/office-push-pin.png" alt="" width=20>
+                        <img v-if="!dynamicNote.isPinned" class="noteTypeIcon" @click="pinNotes(dynamicNote)" src="../../img/push-pin.png" alt="" width=20>
+                        <img v-if="dynamicNote.isPinned" class="noteTypeIcon" @click="pinNotes(dynamicNote)" src="../../img/office-push-pin.png" alt="" width=20>
                  </div>
       
                   <div class="cards-content">
@@ -29,7 +29,8 @@ export default {
                   <input class="colorArticleBtn" type="color" @input="changeColor($event,dynamicNote)" v-model="dynamicNote.style.backgroundColor" />
 
               </div>
-           
+
+     
 
                  
            </li>

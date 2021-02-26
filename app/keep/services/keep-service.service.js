@@ -24,7 +24,7 @@ var notesDB = [
                   txt: "Fullstack Me Baby!"
             },
             style: {
-                  backgroundColor: "#f0d"
+                  backgroundColor: "#D65DB1"
             }
       },
       {
@@ -32,11 +32,11 @@ var notesDB = [
             type: "NoteTxt",
             isPinned: false,
             info: {
-                  title: "Me playing Mi",
-                  txt: "go to show!"
+                  title: "need go shopping",
+                  txt: "need to buy potato's! and mushrooms"
             },
             style: {
-                  backgroundColor: "#00d"
+                  backgroundColor: "#FF6F91"
             }
       },
       {
@@ -44,11 +44,11 @@ var notesDB = [
             type: "NoteImg",
             isPinned: true,
             info: {
-                  title: "Me playing Mi",
-                  url: "https://i.picsum.photos/id/402/200/300.jpg?hmac=JmZsqnQgJgxs4tbKwb8Tdu3r-B0tEGN7nrKEb1jBB0Y",
+                  title: "Photo from the special trip",
+                  url: "../../../img/keepImage/vacation.jpg",
             },
             style: {
-                  backgroundColor: "#48d"
+                  backgroundColor: "#845EC2"
             }
       },
       {
@@ -56,14 +56,28 @@ var notesDB = [
             type: "NoteTodos",
             isPinned: false,
             info: {
-                  title: "How was it:",
+                  title: "things todo tomorrow:",
                   todos: [
-                        { txt: "Do that", doneAt: null, isDone: false },
-                        { txt: "Do this", doneAt: 187111111, isDone: false }
+                        { txt: "Clean the car", doneAt: null, isDone: false },
+                        { txt: "make shopping", doneAt: 187111111, isDone: false },
+                        { txt: "go travel", doneAt: 187111111, isDone: true },
+                        { txt: "make fish and chips", doneAt: 187111111, isDone: false }
                   ]
             },
             style: {
-                  backgroundColor: "#40d"
+                  backgroundColor: "#FF9671"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteImg",
+            isPinned: true,
+            info: {
+                  title: "Photo from the special trip",
+                  url: "../../../img/keepImage/plane.jpg",
+            },
+            style: {
+                  backgroundColor: "#F9F871"
             }
       },
       {
@@ -71,11 +85,146 @@ var notesDB = [
             type: "NoteVideo",
             isPinned: false,
             info: {
-                  title: "first video",
-                  url: "https://r4---sn-bg07dn6l.googlevideo.com/videoplayback?expire=1614186586&ei=-jM2YNPIEPGomLAP8b-62Aw&ip=131.255.223.3&id=o-AFrhUjxnejtxxa2_oPRRgzNEMJXy_ZMyXncpmhOnrhFx&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ns=baVUbJ9qF4XNqaH7IvIEEbgF&gir=yes&clen=22363420&ratebypass=yes&dur=358.028&lmt=1581275631108288&fvip=4&fexp=23983797&c=WEB&txp=5531432&n=4Q0ZLTsrtOuPh7Yp&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgDEDwjFqxh2h6nUR1P19sMjGs9IuKNfaH8cR0SfuSsKkCIQDeSkcGaN1pYByW97ohW2la7uUvTg2iImA2D9OmNFgvNw%3D%3D&rm=sn-voq5oxu-wqve7e,sn-pmcg-bg0sel&req_id=51d8bbdd9a3a3ee&redirect_counter=2&cms_redirect=yes&ipbypass=yes&mh=Jr&mm=30&mn=sn-bg07dn6l&ms=nxu&mt=1614164670&mv=m&mvi=4&pl=24&lsparams=ipbypass,mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRgIhAK94HA_IlN-kklARmP0KDBPh9vw-NgtGalwpjXCRg3RJAiEA918B2Q_nKuPj7ZKdIUuqyD-e-5wUQgk3uLKqjxDPZ8E%3D",
+                  title: "dogs video",
+                  url: "../../../video/dogs.mp4",
             },
             style: {
-                  backgroundColor: "#0dd"
+                  backgroundColor: "#FFC75F"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteImg",
+            isPinned: true,
+            info: {
+                  title: "Photo from the special trip",
+                  url: "../../../img/keepImage/plane.jpg",
+            },
+            style: {
+                  backgroundColor: "#F9F871"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteVideo",
+            isPinned: false,
+            info: {
+                  title: "travel video",
+                  url: "../../../video/travel.mp4",
+            },
+            style: {
+                  backgroundColor: "#845EC2"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteTodos",
+            isPinned: false,
+            info: {
+                  title: "list for the family trip:",
+                  todos: [
+                        { txt: "Clean the car", doneAt: null, isDone: false },
+                        { txt: "buy new camera", doneAt: 187111111, isDone: true },
+                        { txt: "get some book for kids", doneAt: 187111111, isDone: true },
+                        { txt: "make fish and chips", doneAt: 187111111, isDone: false }
+                  ]
+            },
+            style: {
+                  backgroundColor: "#D65DB1"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteTxt",
+            isPinned: true,
+            info: {
+                  title: "cook recipe",
+                  txt: "need to get yogurt with caramel then make put inside with apple and banana"
+            },
+            style: {
+                  backgroundColor: "#FF6F91"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteImg",
+            isPinned: true,
+            info: {
+                  title: "Photo from the special trip",
+                  url: "../../../img/keepImage/travel.jpg",
+            },
+            style: {
+                  backgroundColor: "#FF9671"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteVideo",
+            isPinned: false,
+            info: {
+                  title: "beatles video",
+                  url: "../../../video/beatles.mp4",
+            },
+            style: {
+                  backgroundColor: "#F9F871"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteTxt",
+            isPinned: true,
+            info: {
+                  title: "not forget!",
+                  txt: "never forget enjoy from the way and never stop smiling"
+            },
+            style: {
+                  backgroundColor: "#845EC2"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteImg",
+            isPinned: true,
+            info: {
+                  title: "Photo of the day",
+                  url: "../../../img/keepImage/jerusalem.jpg",
+            },
+            style: {
+                  backgroundColor: "#D65DB1"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteTodos",
+            isPinned: false,
+            info: {
+                  title: "study stuff:",
+                  todos: [
+                        { txt: "finish the example of david", doneAt: null, isDone: false },
+                        { txt: "learn the code of arik", doneAt: 187111111, isDone: false },
+                        { txt: "watch the video of java scrip", doneAt: 187111111, isDone: true },
+                        { txt: "make some css to the app", doneAt: 187111111, isDone: false }
+                  ]
+            },
+            style: {
+                  backgroundColor: "#FF6F91"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteTodos",
+            isPinned: false,
+            info: {
+                  title: "things todo in holidays:",
+                  todos: [
+                        { txt: "read book", doneAt: null, isDone: false },
+                        { txt: "go diving", doneAt: 187111111, isDone: false },
+                        { txt: "go to the show ", doneAt: 187111111, isDone: true },
+                        { txt: "make chips", doneAt: 187111111, isDone: false }
+                  ]
+            },
+            style: {
+                  backgroundColor: "#FFC75F"
             }
       },
 
