@@ -191,7 +191,13 @@ h2 {
 
 .img-keep {
     max-width: 100%;
+    width: 300px;
+    object-fit:cover;
+    border-radius: 5px;
+    border: 1px solid #EEE
 }
+
+
 
 .colorArticleBtn {
     width: 20px;
@@ -205,16 +211,16 @@ h2 {
 /* ARTICLE CARD */
 
 .article-icon {
-    margin-block-end: 40px;
+    margin-block-end: 20px;
 }
 
 .note-title {
     text-shadow: hsl(60, 6%, 77%) 1px 1px 0px, #9C9C9C 2px 2px 0px;
-    margin-block-end: 30px;
+    margin-block-end: 20px;
 }
 
 .hr-article {
-    margin-block-start: 70px;
+    margin-block-start: 15px;
 }
 
 /*KEEP SEARCH BOX */

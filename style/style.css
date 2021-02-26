@@ -80,7 +80,10 @@ button {
 .section-container {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
+
+
 
 .app-home {
     padding-top: 50px;
@@ -577,3 +580,27 @@ button {
 .menu-open .navbar-conntainer {
     transform: translateY(0);
 }
+
+
+
+
+@media (max-width: 1300px) {
+
+    .home-container{
+        margin: 40px;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .home-container{
+        margin: 10px;
+        max-width: 300px;
+    }
+    .app-home-box{
+        max-width: 250px;
+    }
+}
+
+

@@ -6,7 +6,7 @@ export default {
               <img  src="../../img/videoicon.png" alt="" width=25>
               <hr class="article-icon" style="height:1px;border:none;color:#ccc;background-color:#ccc;" />
                     <h2 class="note-title">{{dynamicNote.info.title}}</h2>
-                     <video width="100%" height="180" controls>
+                     <video class="keep-video" width="100%" height="180" controls>
                         <source :src="dynamicNote.info.url" type="video/mp4">
                         <source :src="dynamicNote.info.url" type="video/ogg">
                          Your browser does not support the video tag.
