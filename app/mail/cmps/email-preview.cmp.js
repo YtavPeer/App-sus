@@ -9,7 +9,7 @@ export default {
             <h1 class="email-preview-title">{{email.subject}} - </h1>
             <long-text :txt="email.body"/>
         </div>
-        <div>{{timeFromDate}}</div>
+        <div class="email-preview-time">{{timeFromDate}}</div>
         <div class="email-preview-icons" :class="iconsState">
             <img src="../../img/delete2.png" alt="" width="25" @click.stop="deleteEmail">
             <img :src="imgStarSrc" alt="" width="25"  @click.stop="star">

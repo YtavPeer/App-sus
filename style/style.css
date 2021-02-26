@@ -5,58 +5,62 @@
 /* FONTS */
 
 @font-face {
-    font-family:  meri-regular;
+    font-family: meri-regular;
     src: url(./fonts/Merriweather-Regular.ttf);
-  }
+}
 
-  html{
-      font-family: 'meri-regular';
-  }
+html {
+    font-family: 'meri-regular';
+}
 
-  body {
-      margin: 0;
-      padding: 0;
-  }
-  
-  .main-header {
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-header {
     background-color: #292929;
     width: 100%;
     box-shadow: inset 0 -6px 0 #1e1e1e;
     color: white;
-  }
-  
-  .header-container {
-    height: 100%;
-  }
+}
 
-  .main-header .navbar-conntainer > * {
+.menu-btn {
+    display: none;
+}
+
+.header-container {
+    height: 100%;
+}
+
+.main-header .navbar-conntainer>* {
     width: 70px;
     height: 70px;
     border-right: 1px solid #1d1d1d;
-  }
-  
-  .main-header .navbar-conntainer > *:first-child {
+}
+
+.main-header .navbar-conntainer>*:first-child {
     border-left: 1px solid #1d1d1d;
-  }
-  
-  .main-header .navbar-conntainer > *:hover {
+}
+
+.main-header .navbar-conntainer>*:hover {
     transition: background-color 0.3s;
     box-shadow: inset 0 -6px 0 #ffffff;
     color: #ffffff;
-  }
-  
-  .nav-item {
+}
+
+.nav-item {
     height: 100%;
     justify-content: center;
-  }
-  
-  .navbar-conntainer .nav-item {
+}
+
+.navbar-conntainer .nav-item {
     color: #ffffff;
     font-size: 1rem;
     text-shadow: 0 1px 0 #1e1e1e;
     text-decoration: none;
     text-transform: capitalize;
-  }
+}
 
 
 button {
@@ -73,25 +77,25 @@ button {
 }
 
 /* APP -HOME */
-.section-container{
+.section-container {
     display: flex;
     justify-content: space-evenly;
 }
 
-.app-home{
+.app-home {
     padding-top: 50px;
 }
 
-.app-home-box{
+.app-home-box {
     cursor: pointer;
 }
 
-.hero-title{
+.hero-title {
     font-size: 3em;
     text-align: center;
 }
 
-.home-title{
+.home-title {
     font-size: 2.5em;
     text-align: center;
     text-transform: uppercase;
@@ -113,7 +117,6 @@ button {
     margin: 0 auto;
     margin-top: 1rem;
     border-radius: 10px;
-    z-index: 20;
 }
 
 .email-bar-value {
@@ -168,7 +171,9 @@ button {
     transform: translate(-50%, -50%);
 }
 
-.btn:link, .btn:visited, .btn {
+.btn:link,
+.btn:visited,
+.btn {
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
@@ -294,6 +299,7 @@ button {
 
 .email-side-menu {
     /* background-color: lightskyblue; */
+    margin-left: 10px;
 }
 
 .email-side-menu a {
@@ -329,7 +335,7 @@ button {
 .email-side-menu {
     flex: 2;
     max-width: 300px;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
     /* ??? check! */
 }
 
@@ -368,9 +374,14 @@ button {
 }
 
 .email-preview-icons-show {
-    margin-right: 50px;
-    display: block;
+    margin-right: 30px;
+    flex-wrap: wrap;
+    display: flex;
     animation: fade_in_show .7s
+}
+
+.email-preview-icons-show>* {
+    margin: .5rem;
 }
 
 @keyframes fade_in_show {
@@ -378,6 +389,7 @@ button {
         opacity: 0;
         transform: scale(0)
     }
+
     100% {
         opacity: 1;
         transform: scale(1)
@@ -447,11 +459,81 @@ button {
     }
 }
 
+@media (max-width: 1000px) {
+    .email-preview:hover .email-preview-time {
+        display: none;
+    }
+}
+
 @media (max-width: 810px) {
     .btn {
         font-size: .8rem;
     }
 }
+
+@media (max-width: 730px) {
+    .email-preview:hover {
+        color: inherit;
+        background-color: inherit;
+        transform: scale(1);
+        box-shadow: unset;
+        transition: unset;
+        z-index: unset;
+    }
+
+    .email-side-menu {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+        font-size: 2rem;
+        border: none;
+        color: white;
+        background: #292929;
+    }
+
+    .navbar-conntainer { /* dropdown mobile main menu */
+        position: fixed;
+        right: 0;
+        top: 0;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        align-items: center;
+        transform: translateY(-100%);
+        transition: transform 0.8s;
+    }
+
+    .main-header .navbar-conntainer>* {
+        width: 100%;
+        height: 90px;
+        border-right: none;
+    }
+
+    .main-header .navbar-conntainer>*:first-child {
+        border-left: none;
+    }
+
+    .main-header .navbar-conntainer>*:hover {
+        border: 4px solid white;
+        box-shadow: none;
+    }
+
+    .main-header {
+        /* padding: 0.5rem; */
+    }
+
+    /* .email-preview-icons-show {
+        margin-right: unset;
+        flex-wrap: unset;
+        display: unset;
+        animation: unset
+    } */
+}
+
+
 
 /* EMAIL DETAILS */
 
@@ -484,13 +566,14 @@ button {
 
 .email-detail-body {
     margin-bottom: 2rem;
-    white-space: pre-wrap; 
+    white-space: pre-wrap;
 }
 
-.email-filter{
+.email-filter {
     align-self: center;
     margin: 20px;
 }
 
-
-
+.menu-open .navbar-conntainer {
+    transform: translateY(0);
+}

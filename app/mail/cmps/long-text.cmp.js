@@ -7,8 +7,8 @@ export default {
     `,
     computed: {
         txtToShow() {
-            if (this.txt.length < 40) return this.txt
-            return this.txt.substring(0, 40) + '...'
+            if (this.txt.length < 25) return this.txt
+            return this.txt.substring(0, 25) + '...'
         }
     }
 
