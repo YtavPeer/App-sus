@@ -262,7 +262,28 @@ export default {
             },
             sendEmail(note) {
                   console.log('getting note to send', note);
-                  this.$router.replace({name:'email',query: { title: note.info.title ,txt:note.info.txt }})
+                  switch (note.type) {
+
+                        case 'NoteTodos':
+                              this.$router.replace({ name: 'email', query: { title: note.info.title, txt: JSON.stringify(note.info.todos) } })
+                              break;
+
+                        case 'NoteImg':
+                              this.$router.replace({ name: 'email', query: { title: note.info.title, txt: note.info.url } })
+                              break;
+
+                        case 'NoteVideo':
+                              this.$router.replace({ name: 'email', query: { title: note.info.title, txt: note.info.url } })
+                              break;
+
+                        case 'NoteTxt':
+                              this.$router.replace({ name: 'email', query: { title: note.info.title, txt: note.info.txt } })
+                              break;
+
+                        default:
+                              break;
+                  }
+
             }
       },
       computed: {

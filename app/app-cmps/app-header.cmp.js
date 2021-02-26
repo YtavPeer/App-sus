@@ -22,7 +22,8 @@ export default {
 
       <header class="main-header" :class="menuState">
         <div class="header-container main-container flex space-between center-align">
-            <div class="logo">APPSUS</div>
+            
+            <router-link to="/"  style="text-decoration: none"><div class="logo">APPSUS</div></router-link>
             <!-- <img src="../../img/logo.jpg" alt="" height=70px> -->
 
             <app-search></app-search>

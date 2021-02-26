@@ -265,11 +265,18 @@ h2 {
 
 .logo {
     margin-inline-start: 70px;
+    color: white;
 }
 
 .home-title {
     cursor: pointer;
 }
+
+/* EFFECT FOR BUTTON AND STUFF */
+
+
+
+/*MEDIA SCREEN */
 
 @media only screen and (max-width: 1250px) {
     .dynamicNotes-list {

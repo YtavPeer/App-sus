@@ -5,7 +5,7 @@ export default {
    props: ['dynamicNote'],
    template: `
               <section class="note-todos">
-              <img class="noteTypeIcon"  src="../../img/list.png" alt="" width=25>
+              <img   src="../../img/list.png" alt="" width=25>
               <hr class="article-icon" style="height:1px;border:none;color:#ccc;background-color:#ccc;" />
             
                  <h2 class="note-title">{{dynamicNote.info.title}}</h2>
