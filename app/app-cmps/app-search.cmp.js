@@ -4,7 +4,7 @@ export default {
       template: `
      <header class="app-search">
   
-         <input class="app-search-input" type="text" @input="setFilter" placeholder="Search..." v-model="filterBy.name">
+         <!-- <input class="app-search-input" type="text" @input="setFilter" placeholder="Search..." v-model="filterBy.name">
          <select class="app-select-filter"> 
                <option value="1">1</option>
                <option value="2">2</option>
@@ -12,7 +12,7 @@ export default {
          <select class="app-select-sort"> 
                <option value="1">1</option>
                <option value="2">2</option>
-         </select>
+         </select> -->
 
       </header>
       `,
