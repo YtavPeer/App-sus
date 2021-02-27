@@ -8,7 +8,7 @@ export default {
            <div class="section-container">
       
            <div class="books card home-container">
-                 <router-link to="/books"><img class="app-home-box" src="../img/books-home.png" alt="" height="330px" width="330px"></router-link>
+                 <router-link to="/book"><img class="app-home-box" src="../img/books-home.png" alt="" height="330px" width="330px"></router-link>
                  <h1 class="home-title">Books</h1>
            </div>
            <div class="keep card home-container">
