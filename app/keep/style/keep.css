@@ -67,6 +67,22 @@ h2 {
     margin-inline-end: 5px;
 }
 
+.noteTypeIcon:hover{
+    transition: transform .5s ease-in;
+    -webkit-transition:  box-shadow .3s ease-in;
+    transform: scale(1.2);
+    box-shadow: 2px 12px 25px grey; 
+}
+
+.colorArticleBtn:hover{
+    transition: transform .5s ease-in;
+    -webkit-transition:  box-shadow .3s ease-in;
+    transform: scale(1.2);
+    box-shadow: 2px 12px 25px grey; 
+
+}
+
+
 .color-hide {
     position: absolute;
     left: -10000px;
@@ -143,10 +159,11 @@ h2 {
 
 /* :not(:nth-child(4n+1) */
 .dynamicNotes-list li:hover{ 
+    backface-visibility: hidden;
+    -webkit-transition:  box-shadow .6s ease-in;
+    transition:  transform .4s ease-in;
+    transform:  scale(1.05);
     box-shadow: 2px 12px 25px grey;
-    /* transform:scale(1.1); */
-   -webkit-transition:  box-shadow .6s ease-in;
-   transition:  transform .4s ease-in;
  }
 
 
