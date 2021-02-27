@@ -1,4 +1,4 @@
-@import '../app/mail/style/email.css';
+/* @import '../app/mail/style/email.css'; */
 @import '../app//keep/style/keep.css';
 /* IMPORT KEEP AND EMAIL CSS */
 @import './books.css';
@@ -274,6 +274,10 @@ button {
     margin-left: .3rem;
 }
 
+.email-side-menu-mobile {
+    display: none;
+}
+
 .email-modal-headline-msg {
     color: white;
     display: inline-block;
@@ -480,6 +484,15 @@ button {
 }
 
 @media (max-width: 730px) {
+
+.email-filter{
+    flex-direction: column;
+}
+
+.email-preview-time{
+    display: none;
+}
+
     .email-preview:hover {
         color: inherit;
         background-color: inherit;
@@ -492,6 +505,7 @@ button {
     .email-side-menu {
         display: none;
     }
+    
 
     .menu-btn {
         display: block;
@@ -530,6 +544,17 @@ button {
         box-shadow: none;
     }
 
+    .email-preview-icons {
+        margin-right: 30px;
+        flex-wrap: wrap;
+        display: flex;
+        animation: fade_in_show .7s
+    }
+
+    .email-preview-icons > img {
+        width: 20px;
+    }
+
     .main-header {
         /* padding: 0.5rem; */
     }
@@ -552,32 +577,36 @@ button {
         margin-bottom: .2rem;
     }
 
-    .email-preview-three-dots{
-        position: relative;
-        display: inline-block;
+    .email-preview-icons-show {
+        display: block;
     }
 
-    /* .email-preview-icons-show {
-        margin-right: unset;
-        flex-wrap: unset;
-        display: unset;
-        animation: unset
-    } */
+    .email-preview:hover .email-preview-time {
+        display: block;
+    }
+
+    .email-preview-container{
+        margin-right: 0  !important;
+    }
+
+    .email-preview:hover .email-preview-time {
+        display: none;
+    }
+
+    .email-side-menu-mobile {
+        display: block;
+        max-width: 100%;
+    }
+
+
 }
 
-.email-preview-three-dots:hover .email-preview-three-dots-content {
-    display: block;
-  }
 
-.email-preview-three-dots-content{
-    display: none;
-    /* position: absolute; */
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 100;
-}
+
+
+
+
+
 
 
 
@@ -618,6 +647,14 @@ button {
 .email-filter {
     align-self: center;
     margin: 20px;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.form-filter {
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
 }
 
 .menu-open .navbar-conntainer {
@@ -643,6 +680,14 @@ button {
     }
     .app-home-box{
         max-width: 250px;
+    }
+
+    .email-preview > h1 {
+        margin-right: 1rem;
+    }
+    
+    .email-preview-content {
+        margin-right: 1rem;
     }
 }
 

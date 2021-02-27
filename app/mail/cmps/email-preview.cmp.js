@@ -17,20 +17,14 @@ export default {
             <img :src="imgCheckSrc" alt="" width="25"  @click.stop="markAsRead(email)">
             <img src="../../img/send.png" alt="" width="25" @click.stop="sendToNote">            
         </div>
-        <div class="email-preview-three-dots" >
-        <img  src="../../img/three-dots.png" alt="" width="25" @click.stop="sendToNote">            
-        <div class="email-preview-three-dots-content">
-                <p>Hello World!</p>
-                <p>Hello World!</p>
-                <p>Hello World!</p>
-        </div>
-        </div>
+
+
 
     </section>
     `,
     data() {
         return {
-            hover: false
+            hover: false,
             // isRead: this.email.isRead
         }
     },
@@ -59,7 +53,11 @@ export default {
         },
         navigateToDetails() {
             this.$router.replace({ name: 'emailDetails', params: { emailId: this.email.id } })
-        }
+        },
+        // openMenu() {
+        //     console.log('clicked')
+        //     this.shouldDisplayMenuContent = true
+        // }
     },
     computed: {
         markRead() {
@@ -81,7 +79,8 @@ export default {
         },
         imgCheckSrc() {
             return this.email.isRead ? '../../img/checked (1).png' : '../../img/checked.png'
-        }
+        },
+ 
     },
     components: {
         longText
