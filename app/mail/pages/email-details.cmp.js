@@ -6,12 +6,12 @@ export default {
     <section v-if="email" class="details-email">
         <h1> {{email.subject}} </h1>
         <div class="sender-info flex center-align">
-            <img src="../../img/user.png" width="40" height="40">
+            <img src="./img/user.png" width="40" height="40">
             <div class="sender-email-nickname">{{email.nickname}}</div>
             <div class="sender-email">{{email.sender}}</div>
         </div>
         <p class="email-detail-body"> {{email.body}} </p>
-        <img src="../../img/replay.png" alt="" width="40"  @click="replay">
+        <img src="./img/replay.png" alt="" width="40"  @click="replay">
     </section>
     `,
     data() {
