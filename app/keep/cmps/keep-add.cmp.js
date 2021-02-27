@@ -10,8 +10,8 @@ export default {
                                  <div class="btn-container">
                                     <img class="noteTypeIcon" @click="changeType('NoteTxt')" src="./img/texticon.png" alt="" width=20 />
                                     <img class="noteTypeIcon" @click="changeType('NoteTodos')" src="./img/list.png" alt="" width=20 />
-                                    <img class="noteTypeIcon" @click="changeType('NoteImg')" src="./img/imageicon.png" alt="" width=20 />
-                                    <img class="noteTypeIcon" @click="changeType('NoteVideo')" src="./img/videoicon.png" alt="" width=20 />
+                                    <img class="noteTypeIcon" @click="changeType('NoteImg')" src="./img/imageIcon.png" alt="" width=20 />
+                                    <img class="noteTypeIcon" @click="changeType('NoteVideo')" src="./img/videoIcon.png" alt="" width=20 />
 
                                           <img class="noteTypeIcon" @click="clickChangeColor"  src="./img/color-wheel.png" alt="" width=20>
                                           <input class="colorpickerer" @change="colorChanged"  ref="colorPicker"  :style="{visibility: isTakeColor ? 'visible' : 'hidden'}" type="color" v-model="newNote.color"  tabindex=-1 >
