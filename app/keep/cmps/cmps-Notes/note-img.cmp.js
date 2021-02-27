@@ -9,7 +9,7 @@ export default {
                   <hr class="article-icon" style="height:1px;border:none;color:#ccc;background-color:#ccc;" />
                   
                   <h2 class="note-title">{{dynamicNote.info.title}}</h2>
-                  <img height=150px :src="dynamicNote.info.url" alt="this is image component" class="img-keep">
+                  <img  :src="dynamicNote.info.url" alt="this is image component" class="img-keep">
 
                   <hr class="hr-article" style="height:1px;border:none;color:#ccc;background-color:#ccc;" />
               </section>

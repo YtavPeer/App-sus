@@ -49,8 +49,8 @@ var notesDB = [
             type: "NoteImg",
             isPinned: true,
             info: {
-                  title: "Photo from the special trip",
-                  url: "../../../img/keepImage/plane.jpg",
+                  title: "Photo from manhattan",
+                  url: "https://i.picsum.photos/id/522/200/300.jpg?hmac=6-KFAVAX70eulRbHj_faT1bRFPGrXhPiDHXe6zPaH-4",
             },
             style: {
                   backgroundColor: "#F9F871"
@@ -61,11 +61,11 @@ var notesDB = [
             type: "NoteVideo",
             isPinned: false,
             info: {
-                  title: "dogs video",
-                  url: "../../../video/dogs.mp4",
+                  title: "beatles video",
+                  url: "../../../video/beatles.mp4",
             },
             style: {
-                  backgroundColor: "#FFC75F"
+                  backgroundColor: "#F9F871"
             }
       },
       {
@@ -150,11 +150,11 @@ var notesDB = [
             type: "NoteVideo",
             isPinned: false,
             info: {
-                  title: "beatles video",
-                  url: "../../../video/beatles.mp4",
+                  title: "dogs video",
+                  url: "../../../video/dogs.mp4",
             },
             style: {
-                  backgroundColor: "#F9F871"
+                  backgroundColor: "#FFC75F"
             }
       },
       {
@@ -184,7 +184,7 @@ var notesDB = [
       {
             id: utilService.makeId(),
             type: "NoteTodos",
-            isPinned: false,
+            isPinned: true,
             info: {
                   title: "study stuff:",
                   todos: [
@@ -218,7 +218,7 @@ var notesDB = [
       {
             id: utilService.makeId(),
             type: "NoteTxt",
-            isPinned: true,
+            isPinned: false,
             info: {
                   title: "Me playing Mi",
                   txt: "Fullstack Me Baby!"
