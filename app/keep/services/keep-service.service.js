@@ -18,18 +18,6 @@ var notesDB = [
       {
             id: utilService.makeId(),
             type: "NoteTxt",
-            isPinned: true,
-            info: {
-                  title: "Me playing Mi",
-                  txt: "Fullstack Me Baby!"
-            },
-            style: {
-                  backgroundColor: "#D65DB1"
-            }
-      },
-      {
-            id: utilService.makeId(),
-            type: "NoteTxt",
             isPinned: false,
             info: {
                   title: "need go shopping",
@@ -41,20 +29,8 @@ var notesDB = [
       },
       {
             id: utilService.makeId(),
-            type: "NoteImg",
-            isPinned: true,
-            info: {
-                  title: "Photo from the special trip",
-                  url: "../../../img/keepImage/vacation.jpg",
-            },
-            style: {
-                  backgroundColor: "#845EC2"
-            }
-      },
-      {
-            id: utilService.makeId(),
             type: "NoteTodos",
-            isPinned: false,
+            isPinned: true,
             info: {
                   title: "things todo tomorrow:",
                   todos: [
@@ -97,7 +73,19 @@ var notesDB = [
             type: "NoteImg",
             isPinned: true,
             info: {
-                  title: "Photo from the special trip",
+                  title: "the vacation to maldives",
+                  url: "../../../img/keepImage/vacation.jpg",
+            },
+            style: {
+                  backgroundColor: "#845EC2"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteImg",
+            isPinned: true,
+            info: {
+                  title: "the land in italy",
                   url: "../../../img/keepImage/plane.jpg",
             },
             style: {
@@ -225,6 +213,18 @@ var notesDB = [
             },
             style: {
                   backgroundColor: "#FFC75F"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteTxt",
+            isPinned: true,
+            info: {
+                  title: "Me playing Mi",
+                  txt: "Fullstack Me Baby!"
+            },
+            style: {
+                  backgroundColor: "#D65DB1"
             }
       },
 
