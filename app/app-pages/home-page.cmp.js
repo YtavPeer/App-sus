@@ -14,7 +14,7 @@ export default {
            <div class="keep card home-container">
                  <router-link to="/keep"><img class="app-home-box" src="./img/home-emil.png" alt="" height="330px" width="330px"></router-link>
                  <h1 class="home-title">keep</h1>
-           </div>git 
+           </div>
            <div class="email card home-container">
                  <router-link to="/email"><img class="app-home-box" src="./img/note.png" alt="" height="330px" width="330px"></router-link>
                  <h1 class="home-title">email</h1>

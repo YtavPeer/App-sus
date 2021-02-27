@@ -62,7 +62,7 @@ var notesDB = [
             isPinned: false,
             info: {
                   title: "beatles video",
-                  url: "../../../video/beatles.mp4",
+                  url: "./video/beatles.mp4",
             },
             style: {
                   backgroundColor: "#F9F871"
@@ -74,7 +74,7 @@ var notesDB = [
             isPinned: true,
             info: {
                   title: "the vacation to maldives",
-                  url: "../../../img/keepImage/vacation.jpg",
+                  url: "./img/keepImage/vacation.jpg",
             },
             style: {
                   backgroundColor: "#845EC2"
@@ -86,7 +86,7 @@ var notesDB = [
             isPinned: true,
             info: {
                   title: "the land in italy",
-                  url: "../../../img/keepImage/plane.jpg",
+                  url: "./img/keepImage/plane.jpg",
             },
             style: {
                   backgroundColor: "#F9F871"
@@ -98,7 +98,7 @@ var notesDB = [
             isPinned: false,
             info: {
                   title: "travel video",
-                  url: "../../../video/travel.mp4",
+                  url: "./video/travel.mp4",
             },
             style: {
                   backgroundColor: "#845EC2"
@@ -139,7 +139,7 @@ var notesDB = [
             isPinned: true,
             info: {
                   title: "Photo from the special trip",
-                  url: "../../../img/keepImage/travel.jpg",
+                  url: "./img/keepImage/travel.jpg",
             },
             style: {
                   backgroundColor: "#FF9671"
@@ -151,7 +151,7 @@ var notesDB = [
             isPinned: false,
             info: {
                   title: "dogs video",
-                  url: "../../../video/dogs.mp4",
+                  url: "./video/dogs.mp4",
             },
             style: {
                   backgroundColor: "#FFC75F"
@@ -175,7 +175,7 @@ var notesDB = [
             isPinned: true,
             info: {
                   title: "Photo of the day",
-                  url: "../../../img/keepImage/jerusalem.jpg",
+                  url: "./img/keepImage/jerusalem.jpg",
             },
             style: {
                   backgroundColor: "#D65DB1"
