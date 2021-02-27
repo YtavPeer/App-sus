@@ -21,8 +21,8 @@ export default {
                   
 
                <div class="cards-btn">
-                  <img class="noteTypeIcon" @click="remove(dynamicNote)" src="./../../img/delete.png" alt="" width=20 height=20>
-                  <img class="noteTypeIcon" @click="edit(dynamicNote)" src="./../../img/edit-button.png" alt="" width=20 height=20>
+                  <img class="noteTypeIcon" @click="remove(dynamicNote)" src="../../img/delete.png" alt="" width=20 height=20>
+                  <img class="noteTypeIcon" @click="edit(dynamicNote)" src="../../img/edit-button.png" alt="" width=20 height=20>
     
                   <img class="noteTypeIcon email" @click="sendEmail(dynamicNote)" src="./../../img/send.png" alt="" width=20 height=20>
 
