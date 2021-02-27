@@ -67,21 +67,19 @@ h2 {
     margin-inline-end: 5px;
 }
 
-.noteTypeIcon:hover{
+.noteTypeIcon:hover {
     transition: transform .5s ease-in;
-    -webkit-transition:  box-shadow .3s ease-in;
+    -webkit-transition: box-shadow .3s ease-in;
     transform: scale(1.2);
-    box-shadow: 2px 12px 25px grey; 
+    box-shadow: 2px 12px 25px grey;
 }
 
-.colorArticleBtn:hover{
+.colorArticleBtn:hover {
     transition: transform .5s ease-in;
-    -webkit-transition:  box-shadow .3s ease-in;
+    -webkit-transition: box-shadow .3s ease-in;
     transform: scale(1.2);
-    box-shadow: 2px 12px 25px grey; 
-
+    box-shadow: 2px 12px 25px grey;
 }
-
 
 .color-hide {
     position: absolute;
@@ -99,13 +97,13 @@ h2 {
     /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 4px 12px;
     border-radius: 2px;
-    margin-inline-start: 10px;
+    margin-inline-start: 2px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .pin {
@@ -155,18 +153,15 @@ h2 {
     box-shadow: 3px 3px 5px 6px #ccc;
 }
 
-
-
 /* :not(:nth-child(4n+1) */
-.dynamicNotes-list li:hover{ 
+
+.dynamicNotes-list li:hover {
     backface-visibility: hidden;
-    -webkit-transition:  box-shadow .6s ease-in;
-    transition:  transform .4s ease-in;
-    transform:  scale(1.05);
+    -webkit-transition: box-shadow .6s ease-in;
+    transition: transform .4s ease-in;
+    transform: scale(1.05);
     box-shadow: 2px 12px 25px grey;
- }
-
-
+}
 
 /* CARD */
 
@@ -220,12 +215,10 @@ h2 {
 .img-keep {
     max-width: 100%;
     width: 300px;
-    object-fit:cover;
+    object-fit: cover;
     border-radius: 5px;
     border: 1px solid #EEE
 }
-
-
 
 .colorArticleBtn {
     width: 20px;
@@ -308,8 +301,6 @@ h2 {
 
 /* EFFECT FOR BUTTON AND STUFF */
 
-
-
 /*MEDIA SCREEN */
 
 @media only screen and (max-width: 1250px) {
@@ -337,6 +328,7 @@ h2 {
     .specificInput {
         width: 200px;
     }
+
 }
 
 @media only screen and (max-width: 420px) {
@@ -359,7 +351,11 @@ h2 {
     .specificInput {
         width: 200px;
     }
-    /* .addNoteBtn {
+
+    .takeNoteInput{
+        width: 130px;
+    }
+    .addNoteBtn {
         flex: 1;
         padding: 5px 12px;
         border-radius: 2px;
@@ -368,7 +364,7 @@ h2 {
         text-decoration: none;
         display: inline-block;
         font-size: 10px;
-    } */
+    }
     .mainNoteContainer {
         width: 300px;
     }
