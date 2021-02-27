@@ -123,17 +123,28 @@ export default {
                         return 0
                   })
 
-
                   //TODO: FIX HERE search
-                  if (!this.filters || this.filters.readState === 'all') return this.emails 
+                  if (!this.filters) return this.emails
+                  const emailsToShow = this.filters.readState === 'all' ? this.byTxt : this.byTxtAndReadState
+
+                  return emailsToShow
+            },
+            
+            byTxtAndReadState() {
                   const emailTxt = this.filters.byTxt.toLowerCase()
                   const isRead = this.filters.readState === 'read' ? true : false
-                  const emailsToShow = this.emails.filter(email => {
+                  return this.emails.filter(email => {
                         return (email.subject.toLowerCase().includes(emailTxt)
                               || email.body.toLowerCase().includes(emailTxt))
                               && email.isRead === isRead
                   })
-                  return emailsToShow
+            },
+            byTxt() {
+                  const emailTxt = this.filters.byTxt.toLowerCase()
+                  return this.emails.filter(email => {
+                        return email.subject.toLowerCase().includes(emailTxt)
+                              || email.body.toLowerCase().includes(emailTxt)
+                  })
             },
             precForBar() {
                   const emailsBar = {

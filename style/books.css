@@ -2,12 +2,12 @@
     box-sizing: border-box;
 }
 
-body {
+.app-body{
     margin: 0;
     padding: 0;
-    /* background-color: wheat; */
-
+    background-color: wheat;
 }
+
 
 /* h1,
 h2,
@@ -19,7 +19,18 @@ p {
     margin: 0;
 } */
 
+.book-preview h1 {
+    margin: 0;
+    margin-bottom: 10px;
+}
 
+.book-preview p {
+    margin: 0;
+}
+
+.read-more-btn{
+    align-self: center;
+}
 
 .green {
     color: green;
@@ -131,6 +142,11 @@ p {
     width: 150px;
 } */
 
+.book-details > img {
+    height:200px;
+    width: 150px;
+}
+
 .book-description {
     display: flex;
 }
@@ -142,14 +158,14 @@ p {
 /* HEADER */
 
 
-/* .app-header {
+.app-header {
     background-color: lightgreen;
     padding: 10px;
     height: 5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-} */
+}
 
 /* MODAL */
 .modal {
