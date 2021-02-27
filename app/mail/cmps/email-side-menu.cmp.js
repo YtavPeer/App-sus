@@ -34,7 +34,7 @@ export default {
     data() {
         return {
             active: 0,
-            categories: [{ name: 'Inbox', route: '/email', imgSrc: '../../img/inbox.png' }, { name: 'Sent', route: '/email/sent', imgSrc: '../../img/mail.png' }, { name: 'Starred', route: '/email/starred', imgSrc: '../../img/star.png' }]
+            categories: [{ name: 'Inbox', route: '/email', imgSrc: './img/inbox.png' }, { name: 'Sent', route: '/email/sent', imgSrc: './img/mail.png' }, { name: 'Starred', route: '/email/starred', imgSrc: './img/star.png' }]
         }
     },
     methods: {

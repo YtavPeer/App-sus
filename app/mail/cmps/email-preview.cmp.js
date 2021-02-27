@@ -11,11 +11,11 @@ export default {
         </div>
         <div class="email-preview-time">{{timeFromDate}}</div>
         <div class="email-preview-icons" :class="iconsState">
-            <img src="../../img/delete2.png" alt="" width="25" @click.stop="deleteEmail">
+            <img src="./img/delete2.png" alt="" width="25" @click.stop="deleteEmail">
             <img :src="imgStarSrc" alt="" width="25"  @click.stop="star">
-            <img src="../../img/replay.png" alt="" width="25"  @click.stop="replay">
+            <img src="./img/replay.png" alt="" width="25"  @click.stop="replay">
             <img :src="imgCheckSrc" alt="" width="25"  @click.stop="markAsRead(email)">
-            <img src="../../img/send.png" alt="" width="25" @click.stop="sendToNote">            
+            <img src="./img/send.png" alt="" width="25" @click.stop="sendToNote">            
         </div>
 
 
@@ -75,10 +75,10 @@ export default {
             }
         },
         imgStarSrc() {
-            return this.email.isStarred ? '../../img/star.png' : '../../img/star-empty.png'
+            return this.email.isStarred ? './img/star.png' : './img/star-empty.png'
         },
         imgCheckSrc() {
-            return this.email.isRead ? '../../img/checked (1).png' : '../../img/checked.png'
+            return this.email.isRead ? './img/checked (1).png' : './img/checked.png'
         },
  
     },

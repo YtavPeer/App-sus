@@ -10,7 +10,7 @@ import emailSideMenu from '../cmps/email-side-menu.cmp.js';
 
 export default {
       template: `
-      <section class="home-mail flex flex-column">>
+      <section class="home-mail flex flex-column">
             <email-compose v-if="emailToEdit || isEmailToAdd ||dataFromNotes" @add-email="addEmail" @close-modal="closeModal" :emailToEdit="emailToEdit" :emailFromNote="dataFromNotes" />
             <email-filter @filtered="setFilter" @sorted="setSort"/>
             <email-side-menu class="email-side-menu1 email-side-menu-mobile" @sent-emails="sentEmails" @compose="compose" :percentages="precForBar"/>
