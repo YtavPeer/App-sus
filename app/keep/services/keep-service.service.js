@@ -18,18 +18,6 @@ var notesDB = [
       {
             id: utilService.makeId(),
             type: "NoteTxt",
-            isPinned: true,
-            info: {
-                  title: "Me playing Mi",
-                  txt: "Fullstack Me Baby!"
-            },
-            style: {
-                  backgroundColor: "#D65DB1"
-            }
-      },
-      {
-            id: utilService.makeId(),
-            type: "NoteTxt",
             isPinned: false,
             info: {
                   title: "need go shopping",
@@ -41,20 +29,8 @@ var notesDB = [
       },
       {
             id: utilService.makeId(),
-            type: "NoteImg",
-            isPinned: true,
-            info: {
-                  title: "Photo from the special trip",
-                  url: "../../../img/keepImage/vacation.jpg",
-            },
-            style: {
-                  backgroundColor: "#845EC2"
-            }
-      },
-      {
-            id: utilService.makeId(),
             type: "NoteTodos",
-            isPinned: false,
+            isPinned: true,
             info: {
                   title: "things todo tomorrow:",
                   todos: [
@@ -73,8 +49,8 @@ var notesDB = [
             type: "NoteImg",
             isPinned: true,
             info: {
-                  title: "Photo from the special trip",
-                  url: "../../../img/keepImage/plane.jpg",
+                  title: "Photo from manhattan",
+                  url: "https://i.picsum.photos/id/522/200/300.jpg?hmac=6-KFAVAX70eulRbHj_faT1bRFPGrXhPiDHXe6zPaH-4",
             },
             style: {
                   backgroundColor: "#F9F871"
@@ -85,11 +61,11 @@ var notesDB = [
             type: "NoteVideo",
             isPinned: false,
             info: {
-                  title: "dogs video",
-                  url: "../../../video/dogs.mp4",
+                  title: "beatles video",
+                  url: "../../../video/beatles.mp4",
             },
             style: {
-                  backgroundColor: "#FFC75F"
+                  backgroundColor: "#F9F871"
             }
       },
       {
@@ -97,7 +73,19 @@ var notesDB = [
             type: "NoteImg",
             isPinned: true,
             info: {
-                  title: "Photo from the special trip",
+                  title: "the vacation to maldives",
+                  url: "../../../img/keepImage/vacation.jpg",
+            },
+            style: {
+                  backgroundColor: "#845EC2"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteImg",
+            isPinned: true,
+            info: {
+                  title: "the land in italy",
                   url: "../../../img/keepImage/plane.jpg",
             },
             style: {
@@ -162,11 +150,11 @@ var notesDB = [
             type: "NoteVideo",
             isPinned: false,
             info: {
-                  title: "beatles video",
-                  url: "../../../video/beatles.mp4",
+                  title: "dogs video",
+                  url: "../../../video/dogs.mp4",
             },
             style: {
-                  backgroundColor: "#F9F871"
+                  backgroundColor: "#FFC75F"
             }
       },
       {
@@ -196,7 +184,7 @@ var notesDB = [
       {
             id: utilService.makeId(),
             type: "NoteTodos",
-            isPinned: false,
+            isPinned: true,
             info: {
                   title: "study stuff:",
                   todos: [
@@ -225,6 +213,18 @@ var notesDB = [
             },
             style: {
                   backgroundColor: "#FFC75F"
+            }
+      },
+      {
+            id: utilService.makeId(),
+            type: "NoteTxt",
+            isPinned: false,
+            info: {
+                  title: "Me playing Mi",
+                  txt: "Fullstack Me Baby!"
+            },
+            style: {
+                  backgroundColor: "#D65DB1"
             }
       },
 

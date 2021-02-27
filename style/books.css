@@ -79,6 +79,12 @@ p {
     cursor: pointer;
 }
 
+.book-preview-container:hover{
+
+    transform: scale(1.1);
+    transition: transform 0.6s;
+}
+
 .book-preview-container h1 {
     margin-bottom: 10px;
 }
