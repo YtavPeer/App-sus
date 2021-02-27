@@ -10,11 +10,10 @@ import emailSideMenu from '../cmps/email-side-menu.cmp.js';
 
 export default {
       template: `
-      <section class="home-mail flex flex-column">
-            <!-- <button @click="compose">Compose</button> -->
-            <!-- <email-status :percentages="precForBar" /> -->
+      <section class="home-mail flex flex-column">>
             <email-compose v-if="emailToEdit || isEmailToAdd ||dataFromNotes" @add-email="addEmail" @close-modal="closeModal" :emailToEdit="emailToEdit" :emailFromNote="dataFromNotes" />
             <email-filter @filtered="setFilter" @sorted="setSort"/>
+            <email-side-menu class="email-side-menu1 email-side-menu-mobile" @sent-emails="sentEmails" @compose="compose" :percentages="precForBar"/>
             <div class="flex">
                   <email-side-menu class="email-side-menu1" @sent-emails="sentEmails" @compose="compose" :percentages="precForBar"/>
                   <!-- <email-list class="email-list"  v-if="emails.length" :emails="emailsToShow" @mark-as-read="markAsRead"  @replay="replay"/> -->
@@ -129,7 +128,7 @@ export default {
 
                   return emailsToShow
             },
-            
+
             byTxtAndReadState() {
                   const emailTxt = this.filters.byTxt.toLowerCase()
                   const isRead = this.filters.readState === 'read' ? true : false
