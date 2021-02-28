@@ -123,11 +123,13 @@ export default {
                               }).queue([
                                     {
                                           title: 'new title',
-                                          text: 'Please set your new title'
+                                          text: 'Please set your new title',
+                                          inputPlaceholder: note.info.title
                                     },
                                     {
                                           title: 'new text',
-                                          text: 'Please set your new Text'
+                                          text: 'Please set your new Text',
+                                          inputPlaceholder: note.info.txt
                                     }
                               ]).then((result) => {
                                     if (result.value) {
@@ -151,11 +153,13 @@ export default {
                               }).queue([
                                     {
                                           title: 'new title',
-                                          text: 'Please set your new title'
+                                          text: 'Please set your new title',
+                                          inputPlaceholder: note.info.title
                                     },
                                     {
                                           title: 'new image url',
-                                          text: 'Please set your new Image Url'
+                                          text: 'Please set your new Image Url',
+                                          inputPlaceholder: note.info.url
                                     }
                               ]).then((result) => {
                                     if (result.value) {
@@ -179,11 +183,13 @@ export default {
                               }).queue([
                                     {
                                           title: 'new title',
-                                          text: 'Please set your new title'
+                                          text: 'Please set your new title',
+                                          inputPlaceholder: note.info.title
                                     },
                                     {
                                           title: 'new Video url',
-                                          text: 'Please set your new Video Url'
+                                          text: 'Please set your new Video Url',
+                                          inputPlaceholder: note.info.url
                                     }
                               ]).then((result) => {
                                     if (result.value) {
@@ -207,11 +213,13 @@ export default {
                               }).queue([
                                     {
                                           title: 'new title',
-                                          text: 'Please set your new title'
+                                          text: 'Please set your new title',
+                                          inputPlaceholder: note.info.title
                                     },
                                     {
                                           title: 'new todos',
-                                          text: 'Please set your todos seperate by ;'
+                                          text: 'Please set your todos seperate by ;',
+                                          inputPlaceholder: JSON.stringify(note.info.todos)
                                     }
                               ]).then((result) => {
                                     if (result.value) {
